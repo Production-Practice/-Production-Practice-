@@ -2,79 +2,8 @@
 	<head>
 		<title></title>
 		<meta charset="utf-8" />
-		
-		<style>
-		#divtop{
-			background-color: cadetblue;
-		}
-		/* 设置下拉按钮的样式 */
-		.dropbtn {
-		  background-color: cadetblue;
-		  color: white;
-		  padding: 16px;
-		  font-size: 16px;
-		  border: none;
-		  cursor: pointer;
-		}
-		
-		/* 容器 <div> - 需要放置下拉内容 */
-		.dropdown {
-		  position: relative;
-		  display: inline-block;
-		}
-		
-		/* 下拉内容（默认隐藏） */
-		.dropdown-content {
-		  display: none;
-		  position: absolute;
-		  background-color: cadetblue;
-		  min-width: 160px;
-		  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-		  z-index: 1;
-		}
-		
-		/* 下拉链接 */
-		.dropdown-content a {
-		  color: white;
-		  padding: 12px 16px;
-		  text-decoration: none;
-		  display: block;
-		}
-		
-		/* 悬停时更改下拉链接的颜色 */
-		.dropdown-content a:hover {background-color:black;}
-		
-		/* 悬停时显示下拉菜单 */
-		.dropdown:hover .dropdown-content {
-		  display: block;
-		}
-		
-		/* 显示下拉内容时，更改下拉按钮的背景颜色 */
-		.dropdown:hover .dropbtn {
-		  background-color: cadetblue;
-		}
-		
-		#divleft{
-			background-color:cadetblue ;
-			margin: 10px;
-			border: solid 1px;
-			height: 88%;
-			width: 15%;
-			position: absolute;
-			left: 0.5px;
-		}
-		
-		input[name="search"]{
-			background-color: cadetblue;
-			height: 30px;
-			width: 100%;
-			border:solid 1px white ;
-			border-radius:5px  ;
-			color: white;
-			
-		}
-		
-		</style>
+		<link rel="stylesheet" type="text/css" href="css/css01.css"/>
+
 			
 	</head>
 	
@@ -138,6 +67,7 @@
 			</div>
 		</div>
 
+
 		<div id="divleft">
 			<div id="leftop">
 				<form action="#" method="get">
@@ -146,26 +76,25 @@
 			</div>
 			
 			<div id="leftbot">
-				<ul>
-					<li>
-						<button type="button">中国石油</button>
-						<ul>
-							<li>
-								<button type="button">大庆石化</button>
-								<ul>
-									<li>
-										<button type="button">二催化</button>
-										<ul>
-											<li>
-												<button type="button">重整</button>
-											</li>
-										</ul>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</li>
-				</ul>
+				<!-- <div id="shiyous">
+					<button id="shiyou">中国石油</button>
+				</div> -->
+				<div id="main1" style="color:blue" onclick="document.all.child1.style.display=(document.all.child1.style.display =='none')?'':'none'" >
+				+ 源码下载类</div>
+				<div id="child1" style="display:none">
+				<a href="#">- ASP</a><br>
+				<a href="#">- PHP</a><br>
+				<a href="#">- JSP</a>
+				
+				</div>
+				<div id="main2" style="color:blue" onclick="document.all.child2.style.display=(document.all.child2.style.display =='none')?'':'none'" >
+				+ 技术文章类 </div>
+				<div id="child2" style="display:none"> 
+				<a href="#">- PHP</a><br> 
+				<a href="#">- ASP.NET</a><br>
+				<a href="#">- DELPHI</a>
+				</div>
+				
 			</div>
 			
 			
