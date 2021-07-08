@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>折现图</title>
+		 <!-- 引入 echarts.js -->
+		 <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+		 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"></script>
+	</head>
+	<body>
+			<h1>Ajax 发送 get 请求</h1>
+			<button type="button" id="bt">hhh</button>
+		<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+		    <div id="main1" style="width: 800px;height:200px;"></div>
+			
+		    <script type="text/javascript">
+				//获取数据
+				
+				
+				var equipmentUuid="9aeca92b89c3f1337dd3452a6e8d8806";
+				var pointIdString="设备名称_1H_有仪表位号";
+				document.querySelector("#bt").onclick=function (){
+				    $.ajax({
+				        type: "get",
+				        url: "http://39.106.31.26:8289/trend/"+equipmentUuid+"/"+pointIdString+"/real_time",
+				        contentType: "application/json",
+				        async: true,
+				        dataType: "json",
+				        success:function (result){
+				            alert("success");
+							var rev=result.data.rev;
+				            // equUid=result.data[0].equipmentUuid;
+				            $("#ret").html(rev);
+				        },
+						error:function()
+						{
+							alert("error");
+						}
+				    });
+				}
+								
+				
+				
+// 基于准备好的dom，初始化echarts实例
+
+    var myChart = echarts.init(document.getElementById('main1'));
+
+    // 指定图表的配置项和数据
+
+
+    var option = {
+        backgroundColor: '#303749',
+        title: {
+            top: '20',
+            left: 'center',
+            text: '折线图',
+            textStyle:{
+                //文字颜色
+                color:"#ffb052",
+
+            }
+        },
+
+        grid: [{
+            left: '7%',
+            right: '7%',
+            top: '21%',
+            bottom: '27%'
+        }],
+        tooltip: {
+            trigger: 'axis'
+        },
+
+        legend: {
+
+            // y: 'bottom',
+            bottom: '10%',
+            x: 'center',
+            // 图例样式修改
+            itemWidth: 12,
+            itemHeight: 8,            // 图例图形高度
+            textStyle: {
+                fontSize:12,
+                color: 'white'
+            }
+        },
+        xAxis: {
+            name: 'time',
+            data: ['2021-01-02 16:00:02', '2021-02-02 16:00:02', '2021-03-02 16:00:02', '2021-04-02 16:00:02', '2021-05-02 16:00:02', '2021-06-02 16:00:02', '2021-07-02 16:00:02'],
+
+            splitLine: {
+
+                show: true,
+                lineStyle: {
+                    type: 'solid',  //'dotted'虚线 'solid'实线，
+                    color: 'rgba(255,255,255,0.3)'
+                },
+            },
+            type: 'category',
+            axisLine: {
+                lineStyle: {
+                    type: 'solid',
+                    color: 'rgba(255,255,255,0.3)',
+                    width:'1.5'//坐标线的宽度
+                }
+            },
+            axisLabel: {
+                textStyle: {
+                    color: '#fff',//坐标值得具体的颜色
+
+                }
+            }
+
+        },
+        yAxis: {
+            name: '[um]',
+           // boundaryGap: [0.2, 0.2],
+            splitLine: {
+                show: true,
+                lineStyle: {
+                    type: 'dotted',  //'dotted'虚线 'solid'实线，
+                    color: 'rgba(255,255,255,0.3)'
+                },
+            },
+            type: 'value',
+            //splitNumber: 3,
+            axisLine: {
+                lineStyle: {
+                    type: 'solid',
+                    color: 'rgba(255,255,255,0.3)',
+                    width:'1.5'//坐标线的宽度
+                }
+            },
+            axisLabel: {
+                textStyle: {
+                    color: '#fff',//坐标值得具体的颜色
+
+                }
+            }
+        },
+        series: [{
+            name: '电机架振动位移X',
+            data: [150, 230, 224, 218, 135, 147, 260],
+            type: 'line',
+            color: '#00FF00',
+        }]
+    }
+
+    myChart.setOption(option);
+		    </script>
+	</body>
+</html>
+
+
+<!-- 
+http://39.106.31.26:8289/trend/9aeca92b89c3f1337dd3452a6e8d8806/%E8%AE%BE%E5%A4%87%E5%90%8D%E7%A7%B0_1H_%E6%9C%89%E4%BB%AA%E8%A1%A8%E4%BD%8D%E5%8F%B7/real_time 
+http://39.106.31.26:8289/trend/9aeca92b89c3f1337dd3452a6e8d8806/%E8%AE%BE%E5%A4%87%E5%90%8D%E7%A7%B0_1H_%E6%9C%89%E4%BB%AA%E8%A1%A8%E4%BD%8D%E5%8F%B7/real_time
+ 
+ 
+ -->

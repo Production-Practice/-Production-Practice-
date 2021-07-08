@@ -57,6 +57,7 @@
 			width: 15%;
 			position: relative;
 			left: 0.5px;
+			float: left;
 		}
 		
 input[name="search"]{
@@ -71,24 +72,33 @@ input[name="search"]{
 		
 	
 #shiyou{
-	width: 100%;
+/* 	width: 100%;
 	background-color:cadetblue ;
 	border: solid cadetblue;
 	border-radius: 8px;
 	height: 30px;
-	text-align: left;
+	text-align: left; */
 	
 }
 #shiyou:hover{
-	background-color: chartreuse;
+/* 	background-color: chartreuse; */
 	}
 #shiyou::before{
-	content: '●';
+/* 	content: '●';
 	position: relative;
 	top:-2px;
 	color:black;
+ */
 
+}
 
+#divmiddle{
+	margin: 10px;
+	width: 60%;
+	height: 88%;
+	float: left;
+/* 	position: absolute;
+	top:30px */
 }
 
 		

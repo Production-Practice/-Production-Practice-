@@ -3,7 +3,8 @@
 		<title></title>
 		<meta charset="utf-8" />
 		<link rel="stylesheet" type="text/css" href="css/css01.css"/>
-
+		<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+		<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 			
 	</head>
 	
@@ -76,31 +77,69 @@
 			</div>
 			
 			<div id="leftbot">
-				<!-- <div id="shiyous">
-					<button id="shiyou">中国石油</button>
-				</div> -->
-				<div id="main1" style="color:blue" onclick="document.all.child1.style.display=(document.all.child1.style.display =='none')?'':'none'" >
-				+ 源码下载类</div>
-				<div id="child1" style="display:none">
-				<a href="#">- ASP</a><br>
-				<a href="#">- PHP</a><br>
-				<a href="#">- JSP</a>
-				
-				</div>
-				<div id="main2" style="color:blue" onclick="document.all.child2.style.display=(document.all.child2.style.display =='none')?'':'none'" >
-				+ 技术文章类 </div>
-				<div id="child2" style="display:none"> 
-				<a href="#">- PHP</a><br> 
-				<a href="#">- ASP.NET</a><br>
-				<a href="#">- DELPHI</a>
+				<div id="treenode1">
+					<span id="shiyou" @click="click1()">中国石油</span>
+					<div id="treenode2" v-show=show1>
+						<span id="shihua"  @click="click2()">大庆石化</span>
+						<div id="treenode3" v-show="show2">
+							<span id="cuihua"  @click="click3()">二催化</span>
+							<div id="treenode4" v-show="show3">
+								<span id="chongzheng"  @click="click4()">重整</span>
+								<div id="treenode5">
+									<div id="treeD">
+										<span id="" v-show="show4">DZTB</span>
+									</div>
+									<div id="treeJ">
+										<span id="" v-show="show4">J1102A</span>
+									</div>
+									<div id="treeK">
+										<span id="" v-show="show4">K-203B</span>
+									</div>
+									<div id="treeK">
+										<span id="" v-show="show4">P102A</span>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 				
 			</div>
-			
-			
-			
+		</div>
+		</div>
 		
+		<div id="divmiddle">
+			<iframe src="picture.html" width="80%" height="100%"></iframe>
 		</div>
-		</div>
+		
+		<script>
+		var leftbot=new Vue({
+			el:"#leftbot",
+			data:{
+				show1:false,
+				show2:false,
+				show3:false,
+				show4:false,
+			},
+			methods:{
+				click1:function(){
+					this.show1=!this.show1;
+				},
+				click2:function(){
+					this.show2=!this.show2;
+				},
+				click3:function(){
+					this.show3=!this.show3;
+				},
+				click4:function(){
+					this.show4=!this.show4;
+				}
+			}
+		})
+		
+		
+		</script>
+		
 	</body>
 </html>
