@@ -5,149 +5,140 @@
 		<title>折现图</title>
 		 <!-- 引入 echarts.js -->
 		 <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
-		 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"></script>
+		 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 		 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	</head>
 	<body>
-			<h1>Ajax 发送 get 请求</h1>
-			<button type="button" id="bt">hhh</button>
-		<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-		    <div id="main1" style="width: 800px;height:200px;"></div>
+		<h1>Ajax 发送 get 请求</h1>
+	<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+
+		
+		<div id="app">
+			<div id="main1" style="width: 800px;height:200px;"></div>
+			<button type="button" @click="GetnodeId()">get请求获取nodeId</button>
+			<button type="button" @click="GetequipId()">get请求获取equipmentId</button>
+			<button type="button" @click="GetpointId()">get请求获取pointId</button>
+			<button type="button" @click="GetGraph()">get请求Graph</button>
+			<br />
+			{{nodeId}}
+			<br />
+			{{equipmentUuid}}
+			<br />
+			{{pointId}}
+			<br />
+		</div>
+
+		<!-- 获取数据 -->
+		<script src="js/app.js" type="text/javascript" charset="utf-8"></script>
+
+		<script type="text/javascript">	
 			
-		    <script type="text/javascript">
-				//获取数据
-				
-				var nodeId="10006217002";
-				var equipmentUuid="5a28d3112444601f178d2e975f1636f4";
-				var pointIdString="泵轴轴位移X";
-				document.querySelector("#bt").onclick=function (){
-				    $.ajax({
-				        type: "get",
-				        url: "http://39.106.31.26:8289/trend/"+equipmentUuid+"/"+pointIdString+"/real_time",
-				        contentType: "application/json",
-				        async: true,
-				        dataType: "json",
-				        success:function (result){
-				            alert("success");
-							var rev=result.data.rev;
-				            // equUid=result.data[0].equipmentUuid;
-				            $("#ret").html(rev);
-				        },
-						error:function()
-						{
-							alert("error");
+			var dx=app.$data.spectrumX;
+			var dy=app.$data.spectrumY;
+			// 基于准备好的dom，初始化echarts实例
+			var myChart = echarts.init(document.getElementById('main1'));
+			// 指定图表的配置项和数据
+			
+			
+			var option = {
+				backgroundColor: '#303749',
+				title: {
+					top: '20',
+					left: 'center',
+					text: '频谱图',
+					textStyle:{
+						//文字颜色
+						color:"#ffb052",
+
+					}
+				},
+
+				grid: [{
+					left: '7%',
+					right: '7%',
+					top: '21%',
+					bottom: '27%'
+				}],
+				tooltip: {
+					trigger: 'axis'
+				},
+
+				legend: {
+
+					// y: 'bottom',
+					bottom: '10%',
+					x: 'center',
+					// 图例样式修改
+					itemWidth: 12,
+					itemHeight: 8,            // 图例图形高度
+					textStyle: {
+						fontSize:12,
+						color: 'white'
+					}
+				},
+				xAxis: {
+					name: 'Hz',
+					/* data: ['2021-01-02 16:00:02', '2021-02-02 16:00:02', '2021-03-02 16:00:02', '2021-04-02 16:00:02', '2021-05-02 16:00:02', '2021-06-02 16:00:02', '2021-07-02 16:00:02'], */
+					data:dx,
+					splitLine: {
+
+						show: true,
+						lineStyle: {
+							type: 'solid',  //'dotted'虚线 'solid'实线，
+							color: 'rgba(255,255,255,0.3)'
+						},
+					},
+					type: 'category',
+					axisLine: {
+						lineStyle: {
+							type: 'solid',
+							color: 'rgba(255,255,255,0.3)',
+							width:'1.5'//坐标线的宽度
 						}
-				    });
-				}
-								
-				
-				
-// 基于准备好的dom，初始化echarts实例
+					},
+					axisLabel: {
+						textStyle: {
+							color: '#fff',//坐标值得具体的颜色
 
-    var myChart = echarts.init(document.getElementById('main1'));
+						}
+					}
 
-    // 指定图表的配置项和数据
+				},
+				yAxis: {
+					name: '[um]',
+				   // boundaryGap: [0.2, 0.2],
+					splitLine: {
+						show: true,
+						lineStyle: {
+							type: 'dotted',  //'dotted'虚线 'solid'实线，
+							color: 'rgba(255,255,255,0.3)'
+						},
+					},
+					type: 'value',
+					//splitNumber: 3,
+					axisLine: {
+						lineStyle: {
+							type: 'solid',
+							color: 'rgba(255,255,255,0.3)',
+							width:'1.5'//坐标线的宽度
+						}
+					},
+					axisLabel: {
+						textStyle: {
+							color: '#fff',//坐标值得具体的颜色
 
-
-    var option = {
-        backgroundColor: '#303749',
-        title: {
-            top: '20',
-            left: 'center',
-            text: '折线图',
-            textStyle:{
-                //文字颜色
-                color:"#ffb052",
-
-            }
-        },
-
-        grid: [{
-            left: '7%',
-            right: '7%',
-            top: '21%',
-            bottom: '27%'
-        }],
-        tooltip: {
-            trigger: 'axis'
-        },
-
-        legend: {
-
-            // y: 'bottom',
-            bottom: '10%',
-            x: 'center',
-            // 图例样式修改
-            itemWidth: 12,
-            itemHeight: 8,            // 图例图形高度
-            textStyle: {
-                fontSize:12,
-                color: 'white'
-            }
-        },
-        xAxis: {
-            name: 'time',
-            data: ['2021-01-02 16:00:02', '2021-02-02 16:00:02', '2021-03-02 16:00:02', '2021-04-02 16:00:02', '2021-05-02 16:00:02', '2021-06-02 16:00:02', '2021-07-02 16:00:02'],
-
-            splitLine: {
-
-                show: true,
-                lineStyle: {
-                    type: 'solid',  //'dotted'虚线 'solid'实线，
-                    color: 'rgba(255,255,255,0.3)'
-                },
-            },
-            type: 'category',
-            axisLine: {
-                lineStyle: {
-                    type: 'solid',
-                    color: 'rgba(255,255,255,0.3)',
-                    width:'1.5'//坐标线的宽度
-                }
-            },
-            axisLabel: {
-                textStyle: {
-                    color: '#fff',//坐标值得具体的颜色
-
-                }
-            }
-
-        },
-        yAxis: {
-            name: '[um]',
-           // boundaryGap: [0.2, 0.2],
-            splitLine: {
-                show: true,
-                lineStyle: {
-                    type: 'dotted',  //'dotted'虚线 'solid'实线，
-                    color: 'rgba(255,255,255,0.3)'
-                },
-            },
-            type: 'value',
-            //splitNumber: 3,
-            axisLine: {
-                lineStyle: {
-                    type: 'solid',
-                    color: 'rgba(255,255,255,0.3)',
-                    width:'1.5'//坐标线的宽度
-                }
-            },
-            axisLabel: {
-                textStyle: {
-                    color: '#fff',//坐标值得具体的颜色
-
-                }
-            }
-        },
-        series: [{
-            name: '电机架振动位移X',
-            data: [150, 230, 224, 218, 135, 147, 260],
-            type: 'line',
-            color: '#00FF00',
-        }]
-    }
-
-    myChart.setOption(option);
-		    </script>
+						}
+					}
+				},
+				series: [{
+					name: '电机架振动位移X',
+					/* data: [150, 230, 224, 218, 135, 147, 260], */
+					data:dy,
+					type: 'line',
+					color: '#00FF00',
+				}]
+			}
+			myChart.setOption(option);
+		</script>
 	</body>
 </html>
