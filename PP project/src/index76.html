@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/html">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>故障诊断图谱分析</title>
-		<link rel="stylesheet" href="/css/font-awesome.css" />
-		<link rel="stylesheet" href="/css/index.css" />
+
+		<link rel="stylesheet" href="css/index.css" />
+		<script src="jquery/dist/jquery.min.js"></script>
+		<link rel="stylesheet" href="css/font-awesome.css">
 		<style text/css>
 			.navbar{
 				position: absolute;
@@ -16,34 +18,67 @@
 	<body>
 		<div class="navbar">
 			<input type="checkbox" id="checkbox" />
+
 			<label for="checkbox">
-				<i class="fa fa-chevron-right"></i>
+				<i class="fa fa-retweet"></i>
+
 			</label>
 			<ul>
 				<li>
-					<img src="img/2.jpg" alt="" />
-					<span>操作页</span>
-				</li>
-				<li>
 					<a href="javascript:void(0)">
-						<i class="fa fa-th-list"></i>
-						<span>设备名称:K-203B</span>
-					</a>
-				</li>
-				<li>
-					<a href="javascript:void(0)">
-						<i class="fa fa-sitemap"></i>
-						<span>类型选择</span>
+
+						<p id="menul" >操作页</p>
 
 					</a>
 				</li>
 				<li>
 					<a href="javascript:void(0)">
-						<i class="fa fa-cog"></i>
-						<span>模式选择</span>
+
+						<span>设备名称:K-203B</span>
+
 					</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)">
+
+						<span>类型选择:   <select class="-optin-monster" size="1">
+							<option>多通道单特征值</option>
+							<option>单通道单特征值</option>
+						</select></span>
+
+
+
+					</a>
+				</li>
+
+				<li>
+					<div class=""
+				</li>
+				<li>
+					<a href="javascript:void(0)">
+						<span>模式选择:  实时<input type="radio" name="activity" checked="checked" value="实时">历史<input type="radio" name="activity" value="历史"></span>
+					</a>
+				</li>
+				<li>
+
+					<a >
+						<button id="buttonone" type="button" onclick="flash1()">停止</button>
+					</a>
+					<script>
+						function flash1(){
+							stop = document.getElementById("buttonone");
+							if(stop.innerHTML=="停止")
+							stop.innerHTML="刷新";
+							else {
+								stop.innerHTML="停止";
+							}
+
+						}
+
+					</script>
 				</li>
 			</ul>
 		</div>
+
 	</body>
 </html>
