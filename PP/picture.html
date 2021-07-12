@@ -5,20 +5,23 @@
 		<title>折现图</title>
 		 <!-- 引入 echarts.js -->
 		 <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
-		 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<!-- 		 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
 		 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	</head>
 	<body>
-		<h1>Ajax 发送 get 请求</h1>
-	<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-
 		
 		<div id="app">
-			<div id="main1" style="width: 800px;height:200px;"></div>
+				<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+			<div id="main1" style="width: 800px;height:150px;"></div>
+			<div id="main2" style="width: 800px;height:150px;"></div>
+			<div id="main3" style="width: 800px;height:150px;"></div>
+			<div id="main4" style="width: 800px;height:150px;"></div>
+			
 			<button type="button" @click="GetnodeId()">get请求获取nodeId</button>
 			<button type="button" @click="GetequipId()">get请求获取equipmentId</button>
 			<button type="button" @click="GetpointId()">get请求获取pointId</button>
-			<button type="button" @click="GetGraph()">get请求Graph</button>
+			<button type="button" @click="GetGraph4();GetGraph3()">get请求Graph</button>
 			<br />
 			{{nodeId}}
 			<br />
@@ -32,20 +35,19 @@
 		<script src="js/app.js" type="text/javascript" charset="utf-8"></script>
 
 		<script type="text/javascript">	
-			
-			var dx=app.$data.spectrumX;
-			var dy=app.$data.spectrumY;
 			// 基于准备好的dom，初始化echarts实例
-			var myChart = echarts.init(document.getElementById('main1'));
+			var myChart1 = echarts.init(document.getElementById('main1'));
 			// 指定图表的配置项和数据
-			
-			
+			var myChart2 = echarts.init(document.getElementById('main2'));
+			var myChart3 = echarts.init(document.getElementById('main3'));
+			// 指定图表的配置项和数据
+			var myChart4 = echarts.init(document.getElementById('main4'));
 			var option = {
 				backgroundColor: '#303749',
 				title: {
 					top: '20',
 					left: 'center',
-					text: '频谱图',
+					text: '',
 					textStyle:{
 						//文字颜色
 						color:"#ffb052",
@@ -77,9 +79,9 @@
 					}
 				},
 				xAxis: {
-					name: 'Hz',
+					name: '',
 					/* data: ['2021-01-02 16:00:02', '2021-02-02 16:00:02', '2021-03-02 16:00:02', '2021-04-02 16:00:02', '2021-05-02 16:00:02', '2021-06-02 16:00:02', '2021-07-02 16:00:02'], */
-					data:dx,
+					data:[],
 					splitLine: {
 
 						show: true,
@@ -105,7 +107,7 @@
 
 				},
 				yAxis: {
-					name: '[um]',
+					name: '',
 				   // boundaryGap: [0.2, 0.2],
 					splitLine: {
 						show: true,
@@ -131,14 +133,17 @@
 					}
 				},
 				series: [{
-					name: '电机架振动位移X',
+					name: '',
 					/* data: [150, 230, 224, 218, 135, 147, 260], */
-					data:dy,
+					data:[],
 					type: 'line',
 					color: '#00FF00',
 				}]
 			}
-			myChart.setOption(option);
+			myChart1.setOption(option);
+			myChart2.setOption(option);
+			myChart3.setOption(option);
+			myChart4.setOption(option);
 		</script>
 	</body>
 </html>
