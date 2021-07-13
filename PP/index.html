@@ -1,11 +1,12 @@
 <html>
 	<head>
-		<title></title>
+		<title>admin</title>
 		<meta charset="utf-8" />
 		<link rel="stylesheet" type="text/css" href="css/css01.css"/>
 		<!-- 开发环境版本，包含了有帮助的命令行警告 -->
 <!-- 		<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
 		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+
 	</head>
 	
 	<body>
@@ -69,51 +70,54 @@
 		</div>
 
 
-		<div id="divleft">
-			<div id="leftop">
-				<form action="#" method="get">
-					<input type="text" name="search" value="搜索"/>
-				</form>
-			</div>
-			
-			<div id="leftbot">
-				<div id="treenode1">
-					<span id="shiyou" @click="click1()">中国石油</span>
-					<div id="treenode2" v-show=show1>
-						<span id="shihua"  @click="click2()">大庆石化</span>
-						<div id="treenode3" v-show="show2">
-							<span id="cuihua"  @click="click3()">二催化</span>
-							<div id="treenode4" v-show="show3">
-								<span id="chongzheng"  @click="click4()">重整</span>
-								<div id="treenode5">
-									<div id="treeD">
-										<span id="" v-show="show4">DZTB</span>
+		<div id="LM">
+			<div id="divleft">
+				<div id="leftop">
+					<form action="#" method="get">
+						<input type="text" name="search" value="搜索"/>
+					</form>
+				</div>
+				
+				<div id="leftbot">
+					<div id="treenode1">
+						<span id="shiyou" @click="click1()">中国石油</span>
+						<div id="treenode2" v-show=show1>
+							<span id="shihua"  @click="click2()">大庆石化</span>
+							<div id="treenode3" v-show="show2">
+								<span id="cuihua"  @click="click3()">二催化</span>
+								<div id="treenode4" v-show="show3">
+									<span id="chongzheng"  @click="click4()">重整</span>
+									<div id="treenode5">
+										<div id="treeD">
+											<span id="" v-show="show4">DZTB</span>
+										</div>
+										<div id="treeJ">
+											<span id="" v-show="show4">J1102A</span>
+										</div>
+										<div id="treeK">
+											<span id="" v-show="show4" @click="click5()">K-203B</span>
+										</div>
+										<div id="treeK">
+											<span id="" v-show="show4">P102A</span>
+										</div>
+										
 									</div>
-									<div id="treeJ">
-										<span id="" v-show="show4">J1102A</span>
-									</div>
-									<div id="treeK">
-										<span id="" v-show="show4">K-203B</span>
-									</div>
-									<div id="treeK">
-										<span id="" v-show="show4">P102A</span>
-									</div>
-									
 								</div>
 							</div>
 						</div>
 					</div>
+					
 				</div>
-				
+			</div>
+		
+			
+			<div id="divmiddle" v-show=true>
+				<iframe src="picture.html" width="100%" height="100%" frameborder="0"></iframe>
 			</div>
 		</div>
-		</div>
 		
-		<div id="divmiddle">
-			<iframe src="picture.html" width="100%" height="100%"></iframe>
-		</div>
 
-		<script src="js/leftbot.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/leandce.js" type="text/javascript" charset="utf-8"></script>
 
 		
 	</body>
