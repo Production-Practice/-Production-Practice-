@@ -1,0 +1,154 @@
+<html>
+<head>
+<script type="text/javascript">
+function showCustomer(str)
+{
+var xmlhttp;    
+if (str=="")
+  {
+  document.getElementById("txtHint").innerHTML="";
+  return;
+  }
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("GET","/ajax/getcustomer.asp?q="+str,true);
+xmlhttp.send();
+}
+</script>
+</head>
+<body>
+
+<form action="" style="margin-top:15px;"> 
+<label>请选择一位客户：
+<select name="customers" onchange="showCustomer(this.value)" style="font-family:Verdana, Arial, Helvetica, sans-serif;">
+<option value="APPLE">Apple Computer, Inc.</option>
+<option value="BAIDU ">BAIDU, Inc</option>
+<option value="Canon">Canon USA, Inc.</option>
+<option value="Google">Google, Inc.</option>
+<option value="Nokia">Nokia Corporation</option>
+<option value="SONY">Sony Corporation of America</option>
+</select>
+</label>
+</form>
+<br />
+<div id="txtHint">客户信息将在此处列出 ...</div>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/html">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>故障诊断图谱分析</title>
+
+		<link rel="stylesheet" href="css/index.css" />
+		<script src="jquery/dist/jquery.min.js"></script>
+		<link rel="stylesheet" href="css/font-awesome.css">
+		<style text/css>
+			.navbar{
+				position: absolute;
+				right: 1px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="navbar">
+			<input type="checkbox" id="checkbox" />
+			<label for="checkbox">
+				<i class="fa fa-retweet"></i>
+			</label>
+			<ul>
+				<li>
+					<a href="javascript:void(0)">
+						<p id="menul" >操作页</p>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)">
+						<span>设备名称:K-203B</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)">
+						<span>类型选择:   <select class="-optin-monster" size="1">
+							<option>多通道单特征值</option>
+							<option>单通道单特征值</option>
+						</select></span>
+					</a>
+				</li>
+				
+				<li>
+					<div>		        
+					<p>
+					<a href="javascript:void(0)">
+						<input type="checkbox" id="click">
+						<span>振动-位移</span>
+					</a>
+					<a href="javascript:void(0)">
+						<span>特征 <select class="-optin-monster" size="1">
+							<option>通频</option>
+							<option>1倍频幅值</option>
+							<option>2倍频幅值</option>
+							<option>3倍频幅值</option>
+							<option>1/2倍频幅值</option>
+							<option>残振</option>
+							<option>直流量</option>
+							<option>间隙电压</option>
+							<option>1倍频相位</option>
+							<option>2倍频相位</option>
+							<option>3倍频相位</option>
+							<option>1/2倍频相位</option>
+						</select></span>
+					</a>
+					    <input type='checkbox' name='id' />RCS250MM 泵轴轴位移X<br/>
+					    <input type='checkbox' name='id' />RCS250MM 泵轴轴位移Y<br/>
+					</p>
+					</div>
+				</li>
+				
+				
+				
+				<li>
+					<div class=""></div>
+				</li>
+				
+			
+				<li>
+					<a href="javascript:void(0)">
+						<span>模式选择:  实时<input type="radio" name="activity" checked="checked" value="实时">历史<input type="radio" name="activity" value="历史"></span>
+					</a>
+				</li>
+				<li>
+					<a >
+						<button id="buttonone" type="button" onclick="flash1()">停止</button>
+					</a>
+					<script>
+						function flash1()
+						{
+							stop = document.getElementById("buttonone");
+							if(stop.innerHTML=="停止")
+							stop.innerHTML="刷新";
+							else {
+								stop.innerHTML="停止";
+							}
+						}
+					</script>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>
