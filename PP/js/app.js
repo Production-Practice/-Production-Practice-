@@ -330,7 +330,7 @@ function getG1(spectrumX, spectrumY, textname, xname, yname) {
 		},
 
 		legend: {
-
+			data: ["X", "Y"],
 			// y: 'bottom',
 			bottom: '10%',
 			x: 'center',
@@ -397,16 +397,47 @@ function getG1(spectrumX, spectrumY, textname, xname, yname) {
 			}
 		},
 		series: [{
-			name: '',
-			/* data: [150, 230, 224, 218, 135, 147, 260], */
-			data: spectrumY,
-			type: 'line',
-			color: '#00FF00',
-		}]
+				name: "X",
+				/* data: [150, 230, 224, 218, 135, 147, 260], */
+				data: spectrumY,
+				type: 'line',
+				color: '#00FF00'
+
+
+			},
+
+			{
+				name: "Y",
+				/* data: [150, 230, 224, 218, 135, 147, 260], */
+				data: spectrumY,
+				type: 'line',
+				color: '#ff1a1a'
+
+
+			},
+
+		]
 	}
 	myChart1.setOption(option);
 }
 
+
+
+/* var cbx=document.getElementsByName("p");
+console.log(cbx[0].value);
+ */
+
+var right=new Vue({
+	el:"#divright",
+	data:{
+		point:[],
+		message:"jjj"
+
+	}
+})
+
+var x=right.$data.point;
+console.log(x);
 var app = new Vue({
 
 	el: "#app",
@@ -475,7 +506,7 @@ var app = new Vue({
 			that = this;
 			axios.get("http://39.106.127.16:6793/point/" + this.equipmentUuid + "/detail").then(
 				function(response) {
-					/* 	console.log(response); */
+					console.log(response);
 					that.pointId = response.data.data[0].pointId;
 					console.log("获得pointid");
 					that.GetGraph2();
@@ -509,6 +540,7 @@ var app = new Vue({
 					isy1 = response.data.data.trendValue[0].all;
 					that.y1.push(isy1);
 					getG1(that.time, that.y1, "实时趋势图", "[时间]", "[mm/s2]");
+					getG1(that.time, that.y1, "实时趋势图", "[时间]", "[mm/s2]");
 					getG2(that.time, that.y2, "转速趋势图", "[时间]", "[r/min]");
 					console.log("获得图");
 				}
@@ -526,8 +558,8 @@ var app = new Vue({
 					that.spectrumX = response.data.data.waveValue.waveX;
 					that.spectrumY = response.data.data.waveValue.waveY;
 					getG3(that.spectrumX, that.spectrumY, "波形图", "[秒]", "[um]");
-					var dtime = new Date();
-					console.log(dtime);
+					/* 					var dtime = new Date();
+										console.log(dtime); */
 					console.log("获得图");
 				}
 			)

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>历史</title>
+		<!-- 引入 echarts.js -->
+		<script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+		<!-- 		 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	</head>
+	<body>
+		<div id="happ" align="center">
+			<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+			<div id="h1" style="width: 900px;height:150px;"></div>
+			<div id="h2" style="width: 900px;height:150px;"></div>
+			<div id="h3" style="width: 900px;height:150px;"></div>
+			<div id="h4" style="width: 900px;height:150px;"></div>
+			<!-- 		
+				<button type="button" @click="GetnodeId()">get请求获取nodeId</button>
+				<button type="button" @click="GetequipId()">get请求获取equipmentId</button>
+				<button type="button" @click="GetpointId()">get请求获取pointId</button>
+				<button type="button" @click="GetGraph4();GetGraph3()">get请求Graph</button>
+				<br />
+				{{nodeId}}
+				<br />
+				{{equipmentUuid}}
+				<br />
+				{{pointId}}
+				<br /> -->
+				
+		</div>
+		<!-- 获取数据 -->
+		<!-- <script src="js/app.js" type="text/javascript" charset="utf-8"></script> -->
+
+		<script type="text/javascript">
+			// 基于准备好的dom，初始化echarts实例
+			var myhChart1 = echarts.init(document.getElementById('h1'));
+			// 指定图表的配置项和数据
+			var myhChart2 = echarts.init(document.getElementById('h2'));
+			var myhChart3 = echarts.init(document.getElementById('h3'));
+			// 指定图表的配置项和数据
+			var myhChart4 = echarts.init(document.getElementById('h4'));
+			var option = {
+				backgroundColor: '#303749',
+				title: {
+					top: '20',
+					left: 'center',
+					text: '',
+					textStyle: {
+						//文字颜色
+						color: "#ffb052",
+
+					}
+				},
+
+				grid: [{
+					left: '7%',
+					right: '7%',
+					top: '21%',
+					bottom: '27%'
+				}],
+				tooltip: {
+					trigger: 'axis'
+				},
+
+				legend: {
+
+					// y: 'bottom',
+					bottom: '10%',
+					x: 'center',
+					// 图例样式修改
+					itemWidth: 12,
+					itemHeight: 8, // 图例图形高度
+					textStyle: {
+						fontSize: 12,
+						color: 'white'
+					}
+				},
+				xAxis: {
+					name: '',
+					/* data: ['2021-01-02 16:00:02', '2021-02-02 16:00:02', '2021-03-02 16:00:02', '2021-04-02 16:00:02', '2021-05-02 16:00:02', '2021-06-02 16:00:02', '2021-07-02 16:00:02'], */
+					data: [],
+					splitLine: {
+
+						show: true,
+						lineStyle: {
+							type: 'solid', //'dotted'虚线 'solid'实线，
+							color: 'rgba(255,255,255,0.3)'
+						},
+					},
+					type: 'category',
+					axisLine: {
+						lineStyle: {
+							type: 'solid',
+							color: 'rgba(255,255,255,0.3)',
+							width: '1.5' //坐标线的宽度
+						}
+					},
+					axisLabel: {
+						textStyle: {
+							color: '#fff', //坐标值得具体的颜色
+
+						}
+					}
+
+				},
+				yAxis: {
+					name: '',
+					// boundaryGap: [0.2, 0.2],
+					splitLine: {
+						show: true,
+						lineStyle: {
+							type: 'dotted', //'dotted'虚线 'solid'实线，
+							color: 'rgba(255,255,255,0.3)'
+						},
+					},
+					type: 'value',
+					//splitNumber: 3,
+					axisLine: {
+						lineStyle: {
+							type: 'solid',
+							color: 'rgba(255,255,255,0.3)',
+							width: '1.5' //坐标线的宽度
+						}
+					},
+					axisLabel: {
+						textStyle: {
+							color: '#fff', //坐标值得具体的颜色
+
+						}
+					}
+				},
+				series: [{
+					name: '',
+					/* data: [150, 230, 224, 218, 135, 147, 260], */
+					data: [],
+					type: 'line',
+					color: '#00FF00',
+				}]
+			}
+			myhChart1.setOption(option);
+			myhChart2.setOption(option);
+			myhChart3.setOption(option);
+			myhChart4.setOption(option);
+		</script>
+
+	</body>
+</html>
