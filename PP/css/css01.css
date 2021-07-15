@@ -39,6 +39,52 @@ body{
 		  text-decoration: none;
 		  display: block;
 		}
+
+.sanjiao {
+	/* width: 0;
+	height: 0;
+	border: 5px solid transparent;
+	border-top-color: white; */
+	width: 15px;
+	height: 15px;
+	background-image: url(../images/downsan.png);
+	display: inline-block;
+	position: relative;
+	top: 2px;
+	left: 8px;
+
+}
+#treenode2 {
+	margin-left: 20px;
+}
+#treenode3 {
+	margin-left: 20px;
+}
+#treenode4 {
+	margin-left: 20px;
+}
+#treenode5 {
+	margin-left: 20px;
+}
+.yuanquan {
+	width: 8px;
+	height: 8px;
+	border-radius: 4px;
+	background-color: teal;
+	display: inline-block;
+	position: relative;
+	left: 15px;
+	bottom: 2px;
+}
+.nosanjiao {
+	margin-left: 10px;
+	display: inline-block;
+}
+.mingzi {
+	display: inline-block;
+	position: relative;
+	left: 20px;
+}
 		
 		/* 悬停时更改下拉链接的颜色 */
 .dropdown-content a:hover {background-color:#303749;}
@@ -73,28 +119,6 @@ input[name="search"]{
 			color: white;
 			
 		}
-		
-	
-#shiyou{
-/* 	width: 100%;
-	background-color:cadetblue ;
-	border: solid cadetblue;
-	border-radius: 8px;
-	height: 30px;
-	text-align: left; */
-	
-}
-#shiyou:hover{
-/* 	background-color: chartreuse; */
-	}
-#shiyou::before{
-/* 	content: '●';
-	position: relative;
-	top:-2px;
-	color:black;
- */
-
-}
 
 #divmiddle{
 	margin: 10px;

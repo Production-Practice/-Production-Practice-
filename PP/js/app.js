@@ -397,24 +397,24 @@ function getG1(spectrumX, Y1, Y2, textname, xname, yname) {
 			}
 		},
 		series: [{
-				name: "X",
-				/* data: [150, 230, 224, 218, 135, 147, 260], */
-				data: Y1,
-				type: 'line',
-				color: '#00FF00'
+			name: "X",
+			/* data: [150, 230, 224, 218, 135, 147, 260], */
+			data: Y1,
+			type: 'line',
+			color: '#00FF00'
 
 
-			},
+		},
 
-			{
-				name: "Y",
-				/* data: [150, 230, 224, 218, 135, 147, 260], */
-				data: Y2,
-				type: 'line',
-				color: '#ff1a1a'
+		{
+			name: "Y",
+			/* data: [150, 230, 224, 218, 135, 147, 260], */
+			data: Y2,
+			type: 'line',
+			color: '#ff1a1a'
 
 
-			},
+		},
 
 		]
 	}
@@ -456,17 +456,19 @@ var app = new Vue({
 		show3: false,
 		show4: false,
 		show5: false,
+		imgurl1: "../images/rightsan",
+		imgurl2: "../images/downsan"
 
 	},
-	mounted: function() {
+	mounted: function () {
 
 		this.GetnodeId();
-		this.timers = setInterval(this.GetnodeId, 1000);
+		this.timers = setInterval(this.GetnodeId, 5000);
 
 	},
 	methods: {
 
-		Get: function() {
+		Get: function () {
 			// this.GetnodeId();
 			if (this.xclc || this.yclc) {
 
@@ -477,44 +479,65 @@ var app = new Vue({
 
 		},
 
-		xclick: function() {
+		xclick: function () {
 
 			this.xclc = !this.xclc;
 			this.time = [];
-			this.y1=[];
-			this.y12=[];
+			this.y1 = [];
+			this.y12 = [];
 			getG1(this.time, this.y1, this.y12, "实时趋势图", "[时间]", "[mm/s2]")
 		},
 
-		yclick: function() {
+		yclick: function () {
 
 			this.yclc = !this.yclc;
 			this.time = [];
-			this.y1=[];
-			this.y12=[];
+			this.y1 = [];
+			this.y12 = [];
 			getG1(this.time, this.y1, this.y12, "实时趋势图", "[时间]", "[mm/s2]")
 		},
-		click1: function() {
+		click1: function () {
+			if (this.show2) {
+				this.show2 = !this.show2;
+			}
+			if (this.show3)
+				this.show3 = !this.show3;
+			if (this.show4)
+				this.show4 = !this.show4;
+			if (this.show5)
+				this.show5 = !this.show5;
 			this.show1 = !this.show1;
 		},
-		click2: function() {
+		click2: function () {
+			if (this.show3)
+				this.show3 = !this.show3;
+			if (this.show4)
+				this.show4 = !this.show4;
+			if (this.show5)
+				this.show5 = !this.show5;
 			this.show2 = !this.show2;
 		},
-		click3: function() {
+		click3: function () {
+			if (this.show4)
+				this.show4 = !this.show4;
+			if (this.show5)
+				this.show5 = !this.show5;
 			this.show3 = !this.show3;
 		},
-		click4: function() {
+		click4: function () {
+			if (this.show5)
+				this.show5 = !this.show5;
 			this.show4 = !this.show4;
 		},
-		click5: function() {
+		click5: function () {
 			this.show5 = true;
 		},
 
 
-		GetnodeId: function() {
+		GetnodeId: function () {
 			that = this;
 			axios.get("http://39.106.127.16:6793/node/info").then(
-				function(response) {
+				function (response) {
 					/* console.log(response); */
 					console.log("获得nodeid");
 					console.log(response.data.data[0].nodeId);
@@ -540,10 +563,10 @@ var app = new Vue({
 
 		},
 
-		GetequipId: function() {
+		GetequipId: function () {
 			that = this;
 			axios.get("http://39.106.127.16:6793/equipment/node/" + this.nodeId + "/info").then(
-				function(response) {
+				function (response) {
 					console.log("获得equipid");
 					/* console.log(response); */
 					that.equipmentUuid = response.data.data[0].equipmentUuid;
@@ -553,10 +576,10 @@ var app = new Vue({
 
 		},
 
-		GetpointId: function() {
+		GetpointId: function () {
 			that = this;
 			axios.get("http://39.106.127.16:6793/point/" + this.equipmentUuid + "/detail").then(
-				function(response) {
+				function (response) {
 					console.log(response);
 					that.pointId = response.data.data[0].pointId;
 					console.log("获得pointid");
@@ -570,72 +593,72 @@ var app = new Vue({
 
 
 
-		GetGraph2: function() {
+		GetGraph2: function () {
 			that = this;
 			axios.get("http://39.106.127.16:6793/trend/" + this.equipmentUuid + "/" + this.pointId +
 				"/real_time").then(
-				function(response) {
-					console.log(response);
-					/* 				console.log(response.data.data.waveValue.waveX) */
-					var dtime = new Date();
-					var year = dtime.getFullYear();
-					var month = dtime.getMonth() + 1;
-					var day = dtime.getDate();
-					var hour = dtime.getHours();
-					var minu = dtime.getMinutes();
-					var sec = dtime.getSeconds();
-					var times = year + "-" + month + "-" + day + " " + hour + ":" + minu + ":" + sec;
-					that.time.push(times);
+					function (response) {
+						console.log(response);
+						/* 				console.log(response.data.data.waveValue.waveX) */
+						var dtime = new Date();
+						var year = dtime.getFullYear();
+						var month = dtime.getMonth() + 1;
+						var day = dtime.getDate();
+						var hour = dtime.getHours();
+						var minu = dtime.getMinutes();
+						var sec = dtime.getSeconds();
+						var times = year + "-" + month + "-" + day + " " + hour + ":" + minu + ":" + sec;
+						that.time.push(times);
 
-					isy2 = response.data.data.rev;
-					that.y2.push(isy2);
-					isy1 = response.data.data.trendValue[0].all;
+						isy2 = response.data.data.rev;
+						that.y2.push(isy2);
+						isy1 = response.data.data.trendValue[0].all;
 
 
 
-					that.y1.push(isy1);
-					that.y12.push(isy2);
-					getG1(that.time, that.y1, that.y12, "实时趋势图", "[时间]", "[mm/s2]");
-					getG2(that.time, that.y2, "转速趋势图", "[时间]", "[r/min]");
-					console.log("获得图");
-				}
-			)
+						that.y1.push(isy1);
+						that.y12.push(isy2);
+						getG1(that.time, that.y1, that.y12, "实时趋势图", "[时间]", "[mm/s2]");
+						getG2(that.time, that.y2, "转速趋势图", "[时间]", "[r/min]");
+						console.log("获得图");
+					}
+				)
 		},
 
 
-		GetGraph3: function() {
+		GetGraph3: function () {
 			that = this;
 			axios.get("http://39.106.127.16:6793/trend/" + this.equipmentUuid + "/" + this.pointId +
 				"/real_time").then(
-				function(response) {
-					console.log(response);
-					/* 				console.log(response.data.data.waveValue.waveX) */
-					that.waveX = response.data.data.waveValue.waveX;
-					that.waveY = response.data.data.waveValue.waveY;
-					getG3(that.waveX, that.waveY, "波形图", "[秒]", "[um]");
-					/* 					var dtime = new Date();
-										console.log(dtime); */
-					console.log("获得图");
-				}
-			)
+					function (response) {
+						console.log(response);
+						/* 				console.log(response.data.data.waveValue.waveX) */
+						that.waveX = response.data.data.waveValue.waveX;
+						that.waveY = response.data.data.waveValue.waveY;
+						getG3(that.waveX, that.waveY, "波形图", "[秒]", "[um]");
+						/* 					var dtime = new Date();
+											console.log(dtime); */
+						console.log("获得图");
+					}
+				)
 
 
 		},
 
 
-		GetGraph4: function() {
+		GetGraph4: function () {
 			that = this;
 			axios.get("http://39.106.127.16:6793/trend/" + this.equipmentUuid + "/" + this.pointId +
 				"/real_time").then(
-				function(response) {
-					/* 				console.log(response);
-									console.log(response.data.data.spectrumValue.spectrumX) */
-					that.spectrumX = response.data.data.spectrumValue.spectrumX;
-					that.spectrumY = response.data.data.spectrumValue.spectrumY;
-					getG4(that.spectrumX, that.spectrumY, "频谱图", "[Hz]", "[um]");
+					function (response) {
+						/* 				console.log(response);
+										console.log(response.data.data.spectrumValue.spectrumX) */
+						that.spectrumX = response.data.data.spectrumValue.spectrumX;
+						that.spectrumY = response.data.data.spectrumValue.spectrumY;
+						getG4(that.spectrumX, that.spectrumY, "频谱图", "[Hz]", "[um]");
 
-				}
-			)
+					}
+				)
 
 
 		},
