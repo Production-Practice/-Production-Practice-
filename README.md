@@ -1,3 +1,0 @@
-# -Production-Practice-
-#
-Start project
