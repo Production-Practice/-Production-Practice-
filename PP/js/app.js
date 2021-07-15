@@ -431,13 +431,10 @@ var right=new Vue({
 	el:"#divright",
 	data:{
 		point:[],
-		message:"jjj"
 
 	}
 })
 
-var x=right.$data.point;
-console.log(x);
 var app = new Vue({
 
 	el: "#app",

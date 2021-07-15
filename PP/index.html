@@ -9,122 +9,150 @@
 		<script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
 
 		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<link rel="stylesheet" href="css/index.css" />
+		<script src="js/jquery.min.js"></script>
+		<link rel="stylesheet" href="css/font-awesome.css">
+		<style text/css>
+			.navbar {
+				position: absolute;
+				right: 1px;
+			}
 
+			.navbar p {
+				color: #d1d1d1;
+				text-align: center;
+			}
+
+			.navbar p#pspan1 {
+				font-size: 12px;
+				text-align: center;
+			}
+
+			.navbar p#pspan2 {
+				font-size: 10px;
+				text-align: center;
+			}
+
+			.navbar p#checki {
+				font-size: 18px;
+				text-align: left;
+			}
+		</style>
 
 	</head>
 
 	<body>
 
 
-			<div id="divtop">
-				<div class="dropdown">
-					<button class="dropbtn">应急柴油机震动监测系统</button>
-					<div class="dropdown-content">
-						<a href="#">Link 1</a>
-						<a href="#">Link 2</a>
-						<a href="#">Link 3</a>
-					</div>
-
-				</div>
-				<div class="dropdown">
-					<button class="dropbtn">往复机械专用图谱</button>
-					<div class="dropdown-content">
-						<a href="#">Link 1</a>
-						<a href="#">Link 2</a>
-						<a href="#">Link 3</a>
-					</div>
-
-				</div>
-				<div class="dropdown">
-					<button class="dropbtn">旋转机械专用图谱</button>
-					<div class="dropdown-content">
-						<a href="#">机组概貌图</a>
-						<a href="#">振动监测</a>
-						<a href="#">振动历史比较</a>
-						<a href="#">单多值棒图</a>
-						<a href="#">轴心轨迹</a>
-						<a href="#">轴心位置</a>
-						<a href="#">启停车图形</a>
-						<a href="#">综合分析</a>
-						<a href="#">运行状态图</a>
-						<a href="#">其他参数趋势图</a>
-						<a href="#">旋转报警查询</a>
-						<a href="#">全频谱图</a>
-						<a href="#">二维全息谱图</a>
-						<a href="#">三维全息谱图</a>
-					</div>
+		<div id="divtop">
+			<div class="dropdown">
+				<button class="dropbtn">应急柴油机震动监测系统</button>
+				<div class="dropdown-content">
+					<a href="#">Link 1</a>
+					<a href="#">Link 2</a>
+					<a href="#">Link 3</a>
 				</div>
 
-				<div class="dropdown">
-					<button class="dropbtn">机泵专用图谱</button>
-					<div class="dropdown-content">
-						<a href="#">Link 1</a>
-						<a href="#">Link 2</a>
-						<a href="#">Link 3</a>
-					</div>
+			</div>
+			<div class="dropdown">
+				<button class="dropbtn">往复机械专用图谱</button>
+				<div class="dropdown-content">
+					<a href="#">Link 1</a>
+					<a href="#">Link 2</a>
+					<a href="#">Link 3</a>
 				</div>
 
-
-				<div class="dropdown">
-					<button class="dropbtn">无线机泵专用图谱</button>
-					<div class="dropdown-content">
-						<a href="#">Link 1</a>
-						<a href="#">Link 2</a>
-						<a href="#">Link 3</a>
-					</div>
+			</div>
+			<div class="dropdown">
+				<button class="dropbtn">旋转机械专用图谱</button>
+				<div class="dropdown-content">
+					<a href="#">机组概貌图</a>
+					<a href="#">振动监测</a>
+					<a href="#">振动历史比较</a>
+					<a href="#">单多值棒图</a>
+					<a href="#">轴心轨迹</a>
+					<a href="#">轴心位置</a>
+					<a href="#">启停车图形</a>
+					<a href="#">综合分析</a>
+					<a href="#">运行状态图</a>
+					<a href="#">其他参数趋势图</a>
+					<a href="#">旋转报警查询</a>
+					<a href="#">全频谱图</a>
+					<a href="#">二维全息谱图</a>
+					<a href="#">三维全息谱图</a>
 				</div>
 			</div>
-	
 
-			<div id="LM">
-				<div id="divleft">
-					<div id="leftop">
-						<form action="#" method="get">
-							<input type="text" name="search" value="搜索" />
-						</form>
-					</div>
-					<div id="leftbot">
-						<div id="treenode1">
-							<span id="shiyou" @click="click1()">中国石油</span>
-							<div id="treenode2" v-show=show1>
-								<span id="shihua" @click="click2()">大庆石化</span>
-								<div id="treenode3" v-show="show2">
-									<span id="cuihua" @click="click3()">二催化</span>
-									<div id="treenode4" v-show="show3">
-										<span id="chongzheng" @click="click4()">重整</span>
-										<div id="treenode5">
-											<div id="treeD">
-												<span id="" v-show="show4">DZTB</span>
-											</div>
-											<div id="treeJ">
-												<span id="" v-show="show4">J1102A</span>
-											</div>
-											<div id="treeK">
-												<span id="" v-show="show4" @click="click5()">K-203B</span>
-											</div>
-											<div id="treeK">
-												<span id="" v-show="show4">P102A</span>
-											</div>
+			<div class="dropdown">
+				<button class="dropbtn">机泵专用图谱</button>
+				<div class="dropdown-content">
+					<a href="#">Link 1</a>
+					<a href="#">Link 2</a>
+					<a href="#">Link 3</a>
+				</div>
+			</div>
 
+
+			<div class="dropdown">
+				<button class="dropbtn">无线机泵专用图谱</button>
+				<div class="dropdown-content">
+					<a href="#">Link 1</a>
+					<a href="#">Link 2</a>
+					<a href="#">Link 3</a>
+				</div>
+			</div>
+		</div>
+
+
+		<div id="LM">
+			<div id="divleft">
+				<div id="leftop">
+					<form action="#" method="get">
+						<input type="text" name="search" value="搜索" />
+					</form>
+				</div>
+				<div id="leftbot">
+					<div id="treenode1">
+						<span id="shiyou" @click="click1()">中国石油</span>
+						<div id="treenode2" v-show=show1>
+							<span id="shihua" @click="click2()">大庆石化</span>
+							<div id="treenode3" v-show="show2">
+								<span id="cuihua" @click="click3()">二催化</span>
+								<div id="treenode4" v-show="show3">
+									<span id="chongzheng" @click="click4()">重整</span>
+									<div id="treenode5">
+										<div id="treeD">
+											<span id="" v-show="show4">DZTB</span>
 										</div>
+										<div id="treeJ">
+											<span id="" v-show="show4">J1102A</span>
+										</div>
+										<div id="treeK">
+											<span id="" v-show="show4" @click="click5()">K-203B</span>
+										</div>
+										<div id="treeK">
+											<span id="" v-show="show4">P102A</span>
+										</div>
+
 									</div>
 								</div>
 							</div>
 						</div>
-
 					</div>
+
 				</div>
+			</div>
 
 
-				<div id="divmiddle" v-show=true>
-					<!-- 	<iframe src="picture.html" width="100%" height="100%" frameborder="0"></iframe> -->
-					<div id="app" align="center">
-						<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-						<div id="main1" style="width: 900px;height:150px;"></div>
-						<div id="main2" style="width: 900px;height:150px;"></div>
-						<div id="main3" style="width: 900px;height:150px;"></div>
-						<div id="main4" style="width: 900px;height:150px;"></div>
-						<!-- 		
+			<div id="divmiddle" v-show=true>
+				<!-- 	<iframe src="picture.html" width="100%" height="100%" frameborder="0"></iframe> -->
+				<div id="app" align="center">
+					<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+					<div id="main1" style="width: 900px;height:150px;"></div>
+					<div id="main2" style="width: 900px;height:150px;"></div>
+					<div id="main3" style="width: 900px;height:150px;"></div>
+					<div id="main4" style="width: 900px;height:150px;"></div>
+					<!-- 		
 						<button type="button" @click="GetnodeId()">get请求获取nodeId</button>
 						<button type="button" @click="GetequipId()">get请求获取equipmentId</button>
 						<button type="button" @click="GetpointId()">get请求获取pointId</button>
@@ -137,20 +165,131 @@
 						{{pointId}}
 						<br /> -->
 
-					</div>
-
 				</div>
-
-	
 
 			</div>
 
-			<div id="divright">
-					<input type="checkbox"  value="0" v-model="point" color=""/>X
-					<input type="checkbox"  value="1" v-model="point"/>y
-					{{point}}
 
-				</div>
+
+		</div>
+
+
+		<div id="divright">
+			<div class="navbar">
+				<input type="checkbox" id="checkbox" />
+				<label for="checkbox">
+					<i class="fa fa-retweet"></i>
+				</label>
+				<ul>
+					<li>
+						<p id="menul">操作页</p>
+					</li>
+
+					<li>
+						<p>设备名称:K-203B</p>
+					</li>
+
+					<li>
+						<p>类型选择:
+							<select class="-optin-monster" size="1">
+								<option>多通道单特征值</option>
+								<option>单通道单特征值</option>
+							</select>
+						</p>
+
+					</li>
+
+					<li>
+						<div>
+							<p id="checki"><input type="checkbox" name="clickbox">振动-位移</p>
+							<p id="pspan1">特征 <select class="-optin-monster" size="1">
+									<option>通频</option>
+									<option>1倍频幅值</option>
+									<option>2倍频幅值</option>
+									<option>3倍频幅值</option>
+									<option>1/2倍频幅值</option>
+									<option>残振</option>
+									<option>直流量</option>
+									<option>间隙电压</option>
+									<option>1倍频相位</option>
+									<option>2倍频相位</option>
+									<option>3倍频相位</option>
+									<option>1/2倍频相位</option>
+								</select><br>
+								<input type='checkbox' name='idin'>RCS250MM 泵轴轴位移X<br />
+								<input type='checkbox' name='idin'>RCS250MM 泵轴轴位移Y
+							</p><br />
+							</p>
+						</div>
+						<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+						<!-- start 全选/全不选 -->
+						<script type="text/javascript">
+							$('input[name="clickbox"]').on("click", function() {
+								if ($(this).is(':checked')) {
+									$('input[name="idin"]').each(function() {
+										$(this).prop("checked", true);
+									});
+								} else {
+									$('input[name="idin"]').each(function() {
+										$(this).prop("checked", false);
+									});
+								}
+							});
+						</script>
+					</li>
+
+					<li>
+						<div class=""></div>
+					</li>
+
+					<li>
+						<p>
+							<span>类型选择：实时<input type="radio" name="activity" checked="checked" value="实时"></span>
+							<span>历史<input type="radio" name="activity" value="历史"></span>
+							<span>
+								<div class="dropline">
+									<p>趋势类型(历史): <select class="-optin-monster" size="1">
+											<option>前一阶段</option>
+											<option>起止时间</option>
+											<option>起止月</option>
+										</select></p>
+									<p>时间选择(历史): <select class="-optin-monster" size="1">
+											<option>前5分钟</option>
+											<option>前半小时</option>
+											<option>前1小时</option>
+											<option>前1天</option>
+											<option>前1周</option>
+											<option>前1月</option>
+											<option>前1季度</option>
+											<option>前1年</option>
+										</select></p>
+								</div>
+							</span>
+						</p>
+					</li>
+
+					<li>
+						<a>
+							<button id="buttonone" type="button" onclick="flash1()">停止</button>
+						</a>
+						<script>
+							function flash1() {
+								stop = document.getElementById("buttonone");
+								if (stop.innerHTML == "停止")
+									stop.innerHTML = "刷新";
+								else {
+									stop.innerHTML = "停止";
+								}
+							}
+						</script>
+					</li>
+				</ul>
+			</div>
+
+
+		</div>
+
+
 
 
 
