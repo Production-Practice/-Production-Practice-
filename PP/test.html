@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="right1">
+			<input type="checkbox"  value="1" v-model="point"/>point1
+			<input type="checkbox"  value="2" v-model="point" />point2
+			<div id="ff">
+				{{point}}
+			</div>
+			
+			
+
+		</div>
+
+
+		<script type="text/javascript">
+			var test=new Vue({
+				el:"#right1",
+				data:{
+					point:[],
+					message:"hhh"
+					
+				},
+				methods:{
+					
+				}
+			})
+		</script>
+	</body>
+</html>
