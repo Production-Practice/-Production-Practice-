@@ -305,7 +305,7 @@ function getG2(spectrumX, spectrumY, textname, xname, yname) {
 }
 
 
-function getG1(spectrumX, spectrumY, textname, xname, yname) {
+function getG1(spectrumX, Y1, Y2, textname, xname, yname) {
 	var option = {
 		backgroundColor: '#303749',
 		title: {
@@ -399,7 +399,7 @@ function getG1(spectrumX, spectrumY, textname, xname, yname) {
 		series: [{
 				name: "X",
 				/* data: [150, 230, 224, 218, 135, 147, 260], */
-				data: spectrumY,
+				data: Y1,
 				type: 'line',
 				color: '#00FF00'
 
@@ -409,7 +409,7 @@ function getG1(spectrumX, spectrumY, textname, xname, yname) {
 			{
 				name: "Y",
 				/* data: [150, 230, 224, 218, 135, 147, 260], */
-				data: spectrumY,
+				data: Y2,
 				type: 'line',
 				color: '#ff1a1a'
 
@@ -427,41 +427,90 @@ function getG1(spectrumX, spectrumY, textname, xname, yname) {
 console.log(cbx[0].value);
  */
 
-var right=new Vue({
-	el:"#divright",
-	data:{
-		point:[],
 
-	}
-})
 
 var app = new Vue({
 
 	el: "#app",
 
 	data: {
+
+		xclc: true,
+		yclc: false,
 		nodeId: "",
 		equipmentUuid: "",
 		pointId: "",
 		spectrumX: [],
 		spectrumY: [],
+		waveX: [],
+		waveY: [],
 		timer: "",
 		time: [],
-		y1: [],
-		y2: [],
-		isfirst: false
+		y1: [], //实时趋势图纵坐标
+		y12: [], //第二个图的实时趋势
+		y2: [], //转速纵坐标
+		isfirst: false,
+		message: "hhh",
+		show1: false,
+		show2: false,
+		show3: false,
+		show4: false,
+		show5: false,
+
 	},
 	mounted: function() {
 
 		this.GetnodeId();
-		this.timers = setInterval(this.GetnodeId, 5000);
-
-
-
-
+		this.timers = setInterval(this.GetnodeId, 1000);
 
 	},
 	methods: {
+
+		Get: function() {
+			// this.GetnodeId();
+			if (this.xclc || this.yclc) {
+
+				this.GetnodeId();
+
+			}
+
+
+		},
+
+		xclick: function() {
+
+			this.xclc = !this.xclc;
+			this.time = [];
+			this.y1=[];
+			this.y12=[];
+			getG1(this.time, this.y1, this.y12, "实时趋势图", "[时间]", "[mm/s2]")
+		},
+
+		yclick: function() {
+
+			this.yclc = !this.yclc;
+			this.time = [];
+			this.y1=[];
+			this.y12=[];
+			getG1(this.time, this.y1, this.y12, "实时趋势图", "[时间]", "[mm/s2]")
+		},
+		click1: function() {
+			this.show1 = !this.show1;
+		},
+		click2: function() {
+			this.show2 = !this.show2;
+		},
+		click3: function() {
+			this.show3 = !this.show3;
+		},
+		click4: function() {
+			this.show4 = !this.show4;
+		},
+		click5: function() {
+			this.show5 = true;
+		},
+
+
 		GetnodeId: function() {
 			that = this;
 			axios.get("http://39.106.127.16:6793/node/info").then(
@@ -470,15 +519,20 @@ var app = new Vue({
 					console.log("获得nodeid");
 					console.log(response.data.data[0].nodeId);
 					that.nodeId = response.data.data[0].nodeId;
+					if (that.xclc || that.yclc) {
+						if (that.isfirst) {
+							that.GetGraph2();
+							that.GetGraph3();
+							that.GetGraph4();
+						} else {
+							that.GetequipId();
+							that.isfirst = true;
+						}
 
-					if (that.isfirst) {
-						that.GetGraph2();
-						that.GetGraph3();
-						that.GetGraph4();
-					} else {
-						that.GetequipId();
-						that.isfirst = true;
+
 					}
+
+
 
 
 
@@ -532,12 +586,16 @@ var app = new Vue({
 					var sec = dtime.getSeconds();
 					var times = year + "-" + month + "-" + day + " " + hour + ":" + minu + ":" + sec;
 					that.time.push(times);
+
 					isy2 = response.data.data.rev;
 					that.y2.push(isy2);
 					isy1 = response.data.data.trendValue[0].all;
+
+
+
 					that.y1.push(isy1);
-					getG1(that.time, that.y1, "实时趋势图", "[时间]", "[mm/s2]");
-					getG1(that.time, that.y1, "实时趋势图", "[时间]", "[mm/s2]");
+					that.y12.push(isy2);
+					getG1(that.time, that.y1, that.y12, "实时趋势图", "[时间]", "[mm/s2]");
 					getG2(that.time, that.y2, "转速趋势图", "[时间]", "[r/min]");
 					console.log("获得图");
 				}
@@ -552,9 +610,9 @@ var app = new Vue({
 				function(response) {
 					console.log(response);
 					/* 				console.log(response.data.data.waveValue.waveX) */
-					that.spectrumX = response.data.data.waveValue.waveX;
-					that.spectrumY = response.data.data.waveValue.waveY;
-					getG3(that.spectrumX, that.spectrumY, "波形图", "[秒]", "[um]");
+					that.waveX = response.data.data.waveValue.waveX;
+					that.waveY = response.data.data.waveValue.waveY;
+					getG3(that.waveX, that.waveY, "波形图", "[秒]", "[um]");
 					/* 					var dtime = new Date();
 										console.log(dtime); */
 					console.log("获得图");

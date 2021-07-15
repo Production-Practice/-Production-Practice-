@@ -1,4 +1,4 @@
-var leftbot=new Vue({
+/* var leftbot=new Vue({
 			el:"#LM",
 			data:{
 				show1:false,
@@ -6,7 +6,6 @@ var leftbot=new Vue({
 				show3:false,
 				show4:false,
 				show5:false,
-				message:"hhhhhhhh"
 			},
 			methods:{
 				click1:function(){
@@ -25,4 +24,4 @@ var leftbot=new Vue({
 					this.show5=true;
 				}
 			}
-		})
+		}) */
