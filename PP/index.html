@@ -180,10 +180,10 @@
 				<!-- 	<iframe src="picture.html" width="100%" height="100%" frameborder="0"></iframe> -->
 				<div class="app" align="center">
 					<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-					<div id="main1" style="width: 1320px;height:210px;"></div>
-					<div id="main2" style="width: 1320px;height:210px;"></div>
-					<div id="main3" style="width: 1320px;height:210px;"></div>
-					<div id="main4" style="width: 1320px;height:210px;"></div>
+					<div id="main1" style="width: 100%;height:25%;"></div>
+					<div id="main2" style="width: 100%;height:25%;"></div>
+					<div id="main3" style="width: 100%;height:25%;"></div>
+					<div id="main4" style="width: 100%;height:25%;"></div>
 					<!-- 		
 							<button type="button" @click="GetnodeId()">get请求获取nodeId</button>
 							<button type="button" @click="GetequipId()">get请求获取equipmentId</button>
@@ -291,7 +291,7 @@
 
 					<li>
 						<a>
-							<button id="buttonone" type="button" onclick="flash1()">停止</button>
+							<button id="buttonone" type="button" onclick="flash1()" @click="stop">停止</button>
 						</a>
 
 					</li>
