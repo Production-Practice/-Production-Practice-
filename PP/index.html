@@ -1,190 +1,194 @@
 <html>
 
-<head>
-	<title>admin</title>
-	<meta charset="utf-8" />
-	<link rel="stylesheet" type="text/css" href="css/css01.css" />
-	<!-- 开发环境版本，包含了有帮助的命令行警告 -->
-	<!-- 		<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
-	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
-	<script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+	<head>
+		<title>admin</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="css/css01.css" />
+		<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+		<!-- 		<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
 
-	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-	<link rel="stylesheet" href="css/index.css" />
-	<script src="js/jquery.min.js"></script>
-	<link rel="stylesheet" href="css/font-awesome.css">
-	<style text\css>
-		.navbar {
-			position: absolute;
-			right: 1px;
-		}
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<link rel="stylesheet" href="css/index.css" />
+		<script src="js/jquery.min.js"></script>
+		<link rel="stylesheet" href="css/font-awesome.css">
+		<style text\css>
+			.navbar {
+				position: absolute;
+				right: 1px;
+			}
 
-		.navbar p {
-			color: #d1d1d1;
-			text-align: center;
-		}
+			.navbar p {
+				color: #d1d1d1;
+				text-align: center;
+			}
 
-		.navbar p#pspan1 {
-			font-size: 12px;
-			text-align: center;
-		}
+			.navbar p#pspan1 {
+				font-size: 12px;
+				text-align: center;
+			}
 
-		.navbar p#pspan2 {
-			font-size: 10px;
-			text-align: center;
-		}
+			.navbar p#pspan2 {
+				font-size: 10px;
+				text-align: center;
+			}
 
-		.navbar p#checki {
-			font-size: 18px;
-			text-align: left;
-		}
-	</style>
+			.navbar p#checki {
+				font-size: 18px;
+				text-align: left;
+			}
+		</style>
 
-</head>
+	</head>
 
-<body>
-	<div id="app">
-		<div id="divtop">
-			<div class="dropdown">
-				<button class="dropbtn">应急柴油机震动监测系统</button>
-				<div class="dropdown-content">
-					<a href="#">Link 1</a>
-					<a href="#">Link 2</a>
-					<a href="#">Link 3</a>
+	<body>
+		<div id="app">
+			<div id="divtop">
+				<div class="dropdown">
+					<button class="dropbtn">应急柴油机震动监测系统</button>
+					<div class="dropdown-content">
+						<a href="#">Link 1</a>
+						<a href="#">Link 2</a>
+						<a href="#">Link 3</a>
+					</div>
+
+				</div>
+				<div class="dropdown">
+					<button class="dropbtn">往复机械专用图谱</button>
+					<div class="dropdown-content">
+						<a href="#">Link 1</a>
+						<a href="#">Link 2</a>
+						<a href="#">Link 3</a>
+					</div>
+
+				</div>
+				<div class="dropdown">
+					<button class="dropbtn">旋转机械专用图谱</button>
+					<div class="dropdown-content">
+						<a href="#">机组概貌图</a>
+						<a href="#">振动监测</a>
+						<a href="#">振动历史比较</a>
+						<a href="#">单多值棒图</a>
+						<a href="#">轴心轨迹</a>
+						<a href="#">轴心位置</a>
+						<a href="#">启停车图形</a>
+						<a href="#">综合分析</a>
+						<a href="#">运行状态图</a>
+						<a href="#">其他参数趋势图</a>
+						<a href="#">旋转报警查询</a>
+						<a href="#">全频谱图</a>
+						<a href="#">二维全息谱图</a>
+						<a href="#">三维全息谱图</a>
+					</div>
 				</div>
 
+				<div class="dropdown">
+					<button class="dropbtn">机泵专用图谱</button>
+					<div class="dropdown-content">
+						<a href="#">Link 1</a>
+						<a href="#">Link 2</a>
+						<a href="#">Link 3</a>
+					</div>
+				</div>
+
+
+				<div class="dropdown">
+					<button class="dropbtn">无线机泵专用图谱</button>
+					<div class="dropdown-content">
+						<a href="#">Link 1</a>
+						<a href="#">Link 2</a>
+						<a href="#">Link 3</a>
+					</div>
+				</div>
 			</div>
-			<div class="dropdown">
-				<button class="dropbtn">往复机械专用图谱</button>
-				<div class="dropdown-content">
-					<a href="#">Link 1</a>
-					<a href="#">Link 2</a>
-					<a href="#">Link 3</a>
-				</div>
-
-			</div>
-			<div class="dropdown">
-				<button class="dropbtn">旋转机械专用图谱</button>
-				<div class="dropdown-content">
-					<a href="#">机组概貌图</a>
-					<a href="#">振动监测</a>
-					<a href="#">振动历史比较</a>
-					<a href="#">单多值棒图</a>
-					<a href="#">轴心轨迹</a>
-					<a href="#">轴心位置</a>
-					<a href="#">启停车图形</a>
-					<a href="#">综合分析</a>
-					<a href="#">运行状态图</a>
-					<a href="#">其他参数趋势图</a>
-					<a href="#">旋转报警查询</a>
-					<a href="#">全频谱图</a>
-					<a href="#">二维全息谱图</a>
-					<a href="#">三维全息谱图</a>
-				</div>
-			</div>
-
-			<div class="dropdown">
-				<button class="dropbtn">机泵专用图谱</button>
-				<div class="dropdown-content">
-					<a href="#">Link 1</a>
-					<a href="#">Link 2</a>
-					<a href="#">Link 3</a>
-				</div>
-			</div>
 
 
-			<div class="dropdown">
-				<button class="dropbtn">无线机泵专用图谱</button>
-				<div class="dropdown-content">
-					<a href="#">Link 1</a>
-					<a href="#">Link 2</a>
-					<a href="#">Link 3</a>
-				</div>
-			</div>
-		</div>
-
-
-		<div id="LM">
-			<div id="divleft">
-				<div id="leftop">
-					<form action="#" method="get">
-						<input type="text" name="search" value="搜索" />
-					</form>
-				</div>
-				<div id="leftbot">
-					<div id="treenode1">
-						<span id="shiyou" @click="click1()" change="0">
-							<div class="sanjiao"></div>
-							<div class="yuanquan"></div>
-							<p class="mingzi">中国石油</p>
-						</span>
-						<div id="treenode2" v-show=show1>
-							<span id="shihua" @click="click2()">
+			<div id="LM">
+				<div id="divleft">
+					<div id="leftop">
+						<form action="#" method="get">
+							<input type="text" name="search" value="搜索" />
+						</form>
+					</div>
+					<div id="leftbot">
+						<div id="treenode1">
+							<span id="shiyou" @click="click1()" change="0">
 								<div class="sanjiao"></div>
 								<div class="yuanquan"></div>
-								<p class="mingzi">大庆石化</p>
+								<p class="mingzi">中国石油</p>
 							</span>
-							<div id="treenode3" v-show="show2">
-								<span id="cuihua" @click="click3()">
+							<div id="treenode2" v-show=show1>
+								<span id="shihua" @click="click2()">
 									<div class="sanjiao"></div>
 									<div class="yuanquan"></div>
-									<p class="mingzi">二催化</p>
+									<p class="mingzi">大庆石化</p>
 								</span>
-								<div id="treenode4" v-show="show3">
-									<span id="chongzheng" @click="click4()">
+								<div id="treenode3" v-show="show2">
+									<span id="cuihua" @click="click3()">
 										<div class="sanjiao"></div>
 										<div class="yuanquan"></div>
-										<p class="mingzi">重整</p>
+										<p class="mingzi">二催化</p>
 									</span>
-									<div id="treenode5">
-										<div id="treeD">
-											<span v-show="show4">
-												<div class="nosanjiao"></div>
-												<div class="yuanquan"></div>
-												<p class="mingzi">DZTB</p>
-											</span>
-										</div>
-										<div id="treeJ">
-											<span v-show="show4">
-												<div class="nosanjiao"></div>
-												<div class="yuanquan"></div>
-												<p class="mingzi">J1102A</p>
-											</span>
-										</div>
-										<div id="treeK">
-											<span v-show="show4" @click="click5()">
-												<div class="nosanjiao"></div>
-												<div class="yuanquan"></div>
-												<p class="mingzi">K-203B</p>
-											</span>
-										</div>
-										<div id="treeK">
-											<span v-show="show4">
-												<div class="nosanjiao"></div>
-												<div class="yuanquan"></div>
-												<p class="mingzi">P102A</p>
-											</span>
-										</div>
+									<div id="treenode4" v-show="show3">
+										<span id="chongzheng" @click="click4()">
+											<div class="sanjiao"></div>
+											<div class="yuanquan"></div>
+											<p class="mingzi">重整</p>
+										</span>
+										<div id="treenode5">
+											<div id="treeD">
+												<span v-show="show4">
+													<div class="nosanjiao"></div>
+													<div class="yuanquan"></div>
+													<p class="mingzi">DZTB</p>
+												</span>
+											</div>
+											<div id="treeJ">
+												<span v-show="show4">
+													<div class="nosanjiao"></div>
+													<div class="yuanquan"></div>
+													<p class="mingzi">J1102A</p>
+												</span>
+											</div>
+											<div id="treeK" style="background-color: #008080">
+												<span v-show="show4" @click="click5()">
+													<div class="nosanjiao"></div>
+													<div class="yuanquan"></div>
+													<p class="mingzi">1#泵</p>
+												</span>
+											</div>
+											<div id="treeK">
+												<span v-show="show4">
+													<div class="nosanjiao"></div>
+													<div class="yuanquan"></div>
+													<p class="mingzi">P102A</p>
+												</span>
+											</div>
 
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+
 					</div>
-
 				</div>
-			</div>
 
 
-			<div id="divmiddle" v-show=true>
-				<!-- 	<iframe src="picture.html" width="100%" height="100%" frameborder="0"></iframe> -->
-				<div class="app" align="center">
-					<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-					<div id="main1" style="width: 100%;height:25%;"></div>
-					<div id="main2" style="width: 100%;height:25%;"></div>
-					<div id="main3" style="width: 100%;height:25%;"></div>
-					<div id="main4" style="width: 100%;height:25%;"></div>
-					<!-- 		
+				<div id="divmiddle" v-show=true>
+					<div id="fullScreenMask">
+						<a href="javascript:void(0)">放大</a>
+						<div class="echarts" id="fullScreen"></div>
+					</div>
+					<!-- 	<iframe src="picture.html" width="100%" height="100%" frameborder="0"></iframe> -->
+					<div class="app" align="center">
+						<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+						<div id="main1" style="width: 100%;height:25%;"></div>
+						<div id="main2" style="width: 100%;height:25%;"></div>
+						<div id="main3" style="width: 100%;height:25%;"></div>
+						<div id="main4" style="width: 100%;height:25%;"></div>
+						<!-- 		
 							<button type="button" @click="GetnodeId()">get请求获取nodeId</button>
 							<button type="button" @click="GetequipId()">get请求获取equipmentId</button>
 							<button type="button" @click="GetpointId()">get请求获取pointId</button>
@@ -197,253 +201,253 @@
 							{{pointId}}
 							<br /> -->
 
+					</div>
+
 				</div>
 
+
+
 			</div>
 
 
+			<div id="divright">
+				<div class="navbar">
+					<input type="checkbox" id="checkbox" />
+					<label for="checkbox">
+						<i class="fa fa-retweet"></i>
+					</label>
+					<ul>
+						<li>
+							<p id="menul">操作页</p>
+						</li>
 
-		</div>
+						<li>
+							<p>设备名称:1#泵</p>
+						</li>
 
-
-		<div id="divright">
-			<div class="navbar">
-				<input type="checkbox" id="checkbox" />
-				<label for="checkbox">
-					<i class="fa fa-retweet"></i>
-				</label>
-				<ul>
-					<li>
-						<p id="menul">操作页</p>
-					</li>
-
-					<li>
-						<p>设备名称:K-203B</p>
-					</li>
-
-					<li>
-						<p>类型选择:
-							<select class="-optin-monster" size="1">
-								<option>多通道单特征值</option>
-								<option>单通道单特征值</option>
-							</select>
-						</p>
-
-					</li>
-
-					<li>
-						<div>
-
-							<p id="checki"><input type="checkbox" name="clickbox">振动-位移</p>
-							<p id="pspan1">特征 <select class="-optin-monster" size="1">
-									<option>通频</option>
-									<option>1倍频幅值</option>
-									<option>2倍频幅值</option>
-									<option>3倍频幅值</option>
-									<option>1/2倍频幅值</option>
-									<option>残振</option>
-									<option>直流量</option>
-									<option>间隙电压</option>
-									<option>1倍频相位</option>
-									<option>2倍频相位</option>
-									<option>3倍频相位</option>
-									<option>1/2倍频相位</option>
-								</select><br>
-								<input type='checkbox' value="0" name='idin' @click="xclick()"
-									checked="checked">RCS250MM 泵轴轴位移X<br />
-								<input type='checkbox' value="1" name='idin' @click="yclick()">RCS250MM 泵轴轴位移Y
-
-							</p><br />
+						<li>
+							<p>类型选择:
+								<select class="-optin-monster" size="1">
+									<option>多通道单特征值</option>
+									<option>单通道单特征值</option>
+								</select>
 							</p>
-						</div>
 
-					</li>
+						</li>
 
-					<li>
-						<div class=""></div>
-					</li>
+						<li>
+							<div>
 
-					<li>
-						<p>
-							<span>类型选择：实时<input type="radio" name="activity" checked="checked" value="实时"></span>
-							<span>历史<input type="radio" name="activity" value="历史"></span>
-							<span>
-								<div class="dropline">
-									<p>趋势类型(历史): <select class="-optin-monster" size="1">
-											<option>前一阶段</option>
-											<option>起止时间</option>
-											<option>起止月</option>
-										</select></p>
-									<p>时间选择(历史): <select class="-optin-monster" size="1">
-											<option>前5分钟</option>
-											<option>前半小时</option>
-											<option>前1小时</option>
-											<option>前1天</option>
-											<option>前1周</option>
-											<option>前1月</option>
-											<option>前1季度</option>
-											<option>前1年</option>
-										</select></p>
-								</div>
-							</span>
-						</p>
-					</li>
+								<!-- <p id="checki"><input type="checkbox" name="clickbox">振动-位移</p> -->
+								<p id="pspan1">特征 <select class="-optin-monster" size="1">
+										<option>通频</option>
+										<option>1倍频幅值</option>
+										<option>2倍频幅值</option>
+										<option>3倍频幅值</option>
+										<option>1/2倍频幅值</option>
+										<option>残振</option>
+										<option>直流量</option>
+										<option>间隙电压</option>
+										<option>1倍频相位</option>
+										<option>2倍频相位</option>
+										<option>3倍频相位</option>
+										<option>1/2倍频相位</option>
+									</select><br>
+									<input type='checkbox' value="0" name='idin' @click="xclick()"
+										checked="checked">RCS250MM 泵轴轴位移X<br />
+									<input type='checkbox' value="1" name='idin' @click="yclick()">RCS250MM 泵轴轴位移Y
 
-					<li>
-						<a>
-							<button id="buttonone" type="button" onclick="flash1()" @click="stop">停止</button>
-						</a>
+								</p><br />
+								</p>
+							</div>
 
-					</li>
-				</ul>
+						</li>
+
+						<li>
+							<div class=""></div>
+						</li>
+
+						<li>
+							<p>
+								<span>类型选择：实时<input type="radio" name="activity" checked="checked" value="实时"></span>
+								<span>历史<input type="radio" name="activity" value="历史"></span>
+								<span>
+									<div class="dropline">
+										<p>趋势类型(历史): <select class="-optin-monster" size="1">
+												<option>前一阶段</option>
+												<option>起止时间</option>
+												<option>起止月</option>
+											</select></p>
+										<p>时间选择(历史): <select class="-optin-monster" size="1">
+												<option>前5分钟</option>
+												<option>前半小时</option>
+												<option>前1小时</option>
+												<option>前1天</option>
+												<option>前1周</option>
+												<option>前1月</option>
+												<option>前1季度</option>
+												<option>前1年</option>
+											</select></p>
+									</div>
+								</span>
+							</p>
+						</li>
+
+						<li>
+							<a>
+								<button id="buttonone" type="button" onclick="flash1()" @click="stop">停止</button>
+							</a>
+
+						</li>
+					</ul>
+				</div>
+
+
 			</div>
 
 
 		</div>
-
-
-	</div>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<!-- start 全选/全不选 -->
-	<script type="text/javascript">
-		$('input[name="clickbox"]').on("click", function () {
-			if ($(this).is(':checked')) {
-				$('input[name="idin"]').each(function () {
-					$(this).prop("checked", true);
-				});
-			} else {
-				$('input[name="idin"]').each(function () {
-					$(this).prop("checked", false);
-				});
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<!-- start 全选/全不选 -->
+		<script type="text/javascript">
+			$('input[name="clickbox"]').on("click", function() {
+				if ($(this).is(':checked')) {
+					$('input[name="idin"]').each(function() {
+						$(this).prop("checked", true);
+					});
+				} else {
+					$('input[name="idin"]').each(function() {
+						$(this).prop("checked", false);
+					});
+				}
+			});
+		</script>
+		<script>
+			function flash1() {
+				stop = document.getElementById("buttonone");
+				if (stop.innerHTML == "停止")
+					stop.innerHTML = "刷新";
+				else {
+					stop.innerHTML = "停止";
+				}
 			}
-		});
-	</script>
-	<script>
-		function flash1() {
-			stop = document.getElementById("buttonone");
-			if (stop.innerHTML == "停止")
-				stop.innerHTML = "刷新";
-			else {
-				stop.innerHTML = "停止";
+		</script>
+
+		<script src="js/leandce.js" type="text/javascript" charset="utf-8"></script>
+		<!-- 获取数据 -->
+		<script src="js/app.js" type="text/javascript" charset="utf-8"></script>
+
+		<script type="text/javascript">
+			// 基于准备好的dom，初始化echarts实例
+			var myChart1 = echarts.init(document.getElementById('main1'));
+			// 指定图表的配置项和数据
+			var myChart2 = echarts.init(document.getElementById('main2'));
+			var myChart3 = echarts.init(document.getElementById('main3'));
+			// 指定图表的配置项和数据
+			var myChart4 = echarts.init(document.getElementById('main4'));
+			var option = {
+				backgroundColor: '#303749',
+				title: {
+					top: '20',
+					left: 'center',
+					text: '',
+					textStyle: {
+						//文字颜色
+						color: "#ffb052",
+
+					}
+				},
+
+				grid: [{
+					left: '7%',
+					right: '7%',
+					top: '21%',
+					bottom: '27%'
+				}],
+				tooltip: {
+					trigger: 'axis'
+				},
+
+				legend: {
+
+					// y: 'bottom',
+					bottom: '10%',
+					x: 'center',
+					// 图例样式修改
+					itemWidth: 12,
+					itemHeight: 8, // 图例图形高度
+					textStyle: {
+						fontSize: 12,
+						color: 'white'
+					}
+				},
+				xAxis: {
+					name: '',
+					/* data: ['2021-01-02 16:00:02', '2021-02-02 16:00:02', '2021-03-02 16:00:02', '2021-04-02 16:00:02', '2021-05-02 16:00:02', '2021-06-02 16:00:02', '2021-07-02 16:00:02'], */
+					data: [],
+					splitLine: {
+
+						show: true,
+						lineStyle: {
+							type: 'solid', //'dotted'虚线 'solid'实线，
+							color: 'rgba(255,255,255,0.3)'
+						},
+					},
+					type: 'category',
+					axisLine: {
+						lineStyle: {
+							type: 'solid',
+							color: 'rgba(255,255,255,0.3)',
+							width: '1.5' //坐标线的宽度
+						}
+					},
+					axisLabel: {
+						textStyle: {
+							color: '#fff', //坐标值得具体的颜色
+
+						}
+					}
+
+				},
+				yAxis: {
+					name: '',
+					// boundaryGap: [0.2, 0.2],
+					splitLine: {
+						show: true,
+						lineStyle: {
+							type: 'dotted', //'dotted'虚线 'solid'实线，
+							color: 'rgba(255,255,255,0.3)'
+						},
+					},
+					type: 'value',
+					//splitNumber: 3,
+					axisLine: {
+						lineStyle: {
+							type: 'solid',
+							color: 'rgba(255,255,255,0.3)',
+							width: '1.5' //坐标线的宽度
+						}
+					},
+					axisLabel: {
+						textStyle: {
+							color: '#fff', //坐标值得具体的颜色
+
+						}
+					}
+				},
+				series: [{
+					name: '',
+					/* data: [150, 230, 224, 218, 135, 147, 260], */
+					data: [],
+					type: 'line',
+					color: '#00FF00',
+				}]
 			}
-		}
-	</script>
-
-	<script src="js/leandce.js" type="text/javascript" charset="utf-8"></script>
-	<!-- 获取数据 -->
-	<script src="js/app.js" type="text/javascript" charset="utf-8"></script>
-
-	<script type="text/javascript">
-		// 基于准备好的dom，初始化echarts实例
-		var myChart1 = echarts.init(document.getElementById('main1'));
-		// 指定图表的配置项和数据
-		var myChart2 = echarts.init(document.getElementById('main2'));
-		var myChart3 = echarts.init(document.getElementById('main3'));
-		// 指定图表的配置项和数据
-		var myChart4 = echarts.init(document.getElementById('main4'));
-		var option = {
-			backgroundColor: '#303749',
-			title: {
-				top: '20',
-				left: 'center',
-				text: '',
-				textStyle: {
-					//文字颜色
-					color: "#ffb052",
-
-				}
-			},
-
-			grid: [{
-				left: '7%',
-				right: '7%',
-				top: '21%',
-				bottom: '27%'
-			}],
-			tooltip: {
-				trigger: 'axis'
-			},
-
-			legend: {
-
-				// y: 'bottom',
-				bottom: '10%',
-				x: 'center',
-				// 图例样式修改
-				itemWidth: 12,
-				itemHeight: 8, // 图例图形高度
-				textStyle: {
-					fontSize: 12,
-					color: 'white'
-				}
-			},
-			xAxis: {
-				name: '',
-				/* data: ['2021-01-02 16:00:02', '2021-02-02 16:00:02', '2021-03-02 16:00:02', '2021-04-02 16:00:02', '2021-05-02 16:00:02', '2021-06-02 16:00:02', '2021-07-02 16:00:02'], */
-				data: [],
-				splitLine: {
-
-					show: true,
-					lineStyle: {
-						type: 'solid', //'dotted'虚线 'solid'实线，
-						color: 'rgba(255,255,255,0.3)'
-					},
-				},
-				type: 'category',
-				axisLine: {
-					lineStyle: {
-						type: 'solid',
-						color: 'rgba(255,255,255,0.3)',
-						width: '1.5' //坐标线的宽度
-					}
-				},
-				axisLabel: {
-					textStyle: {
-						color: '#fff', //坐标值得具体的颜色
-
-					}
-				}
-
-			},
-			yAxis: {
-				name: '',
-				// boundaryGap: [0.2, 0.2],
-				splitLine: {
-					show: true,
-					lineStyle: {
-						type: 'dotted', //'dotted'虚线 'solid'实线，
-						color: 'rgba(255,255,255,0.3)'
-					},
-				},
-				type: 'value',
-				//splitNumber: 3,
-				axisLine: {
-					lineStyle: {
-						type: 'solid',
-						color: 'rgba(255,255,255,0.3)',
-						width: '1.5' //坐标线的宽度
-					}
-				},
-				axisLabel: {
-					textStyle: {
-						color: '#fff', //坐标值得具体的颜色
-
-					}
-				}
-			},
-			series: [{
-				name: '',
-				/* data: [150, 230, 224, 218, 135, 147, 260], */
-				data: [],
-				type: 'line',
-				color: '#00FF00',
-			}]
-		}
-		myChart1.setOption(option);
-		myChart2.setOption(option);
-		myChart3.setOption(option);
-		myChart4.setOption(option);
-	</script>
-</body>
+			myChart1.setOption(option);
+			myChart2.setOption(option);
+			myChart3.setOption(option);
+			myChart4.setOption(option);
+		</script>
+	</body>
 
 </html>
