@@ -1,44 +1,44 @@
-
-body{
+body {
 	background-color: #000000;
 }
 
-#divtop{
-			background-color: #303749;
-		}
-		/* 设置下拉按钮的样式 */
-		.dropbtn {
-		  background-color: #303749;
-		  color: white;
-		  padding: 16px;
-		  font-size: 16px;
-		  border: none;
-		  cursor: pointer;
-		}
-		
-		/* 容器 <div> - 需要放置下拉内容 */
+#divtop {
+	background-color: #303749;
+}
+
+/* 设置下拉按钮的样式 */
+.dropbtn {
+	background-color: #303749;
+	color: white;
+	padding: 16px;
+	font-size: 16px;
+	border: none;
+	cursor: pointer;
+}
+
+/* 容器 <div> - 需要放置下拉内容 */
 .dropdown {
-		  position: relative;
-		  display: inline-block;
-		}
-		
-		/* 下拉内容（默认隐藏） */
+	position: relative;
+	display: inline-block;
+}
+
+/* 下拉内容（默认隐藏） */
 .dropdown-content {
-		  display: none;
-		  position: absolute;
-		  background-color:#303749;
-		  min-width: 160px;
-		  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-		  z-index: 1;
-		}
-		
-		/* 下拉链接 */
+	display: none;
+	position: absolute;
+	background-color: #303749;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+}
+
+/* 下拉链接 */
 .dropdown-content a {
-		  color: white;
-		  padding: 12px 16px;
-		  text-decoration: none;
-		  display: block;
-		}
+	color: white;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
 
 .sanjiao {
 	/* width: 0;
@@ -54,18 +54,23 @@ body{
 	left: 8px;
 
 }
+
 #treenode2 {
 	margin-left: 20px;
 }
+
 #treenode3 {
 	margin-left: 20px;
 }
+
 #treenode4 {
 	margin-left: 20px;
 }
+
 #treenode5 {
 	margin-left: 20px;
 }
+
 .yuanquan {
 	width: 8px;
 	height: 8px;
@@ -76,65 +81,85 @@ body{
 	left: 15px;
 	bottom: 2px;
 }
+
 .nosanjiao {
 	margin-left: 10px;
 	display: inline-block;
 }
+
 .mingzi {
 	display: inline-block;
 	position: relative;
 	left: 20px;
 }
-		
-		/* 悬停时更改下拉链接的颜色 */
-.dropdown-content a:hover {background-color:#303749;}
-		
-		/* 悬停时显示下拉菜单 */
-.dropdown:hover .dropdown-content {
-		  display: block;
-		}
-		
-		/* 显示下拉内容时，更改下拉按钮的背景颜色 */
-.dropdown:hover .dropbtn {
-		  background-color: #303749;
-		}
-		
-#divleft{
-			background-color:#303749 ;
-			margin: 10px;
-/* 			border: solid 1px; */
-			height: 88%;
-			width: 15%;
-			position: relative;
-			left: 0.5px;
-			float: left;
-		}
-		
-input[name="search"]{
-			background-color: #303749;
-			height: 30px;
-			width: 100%;
-			border:solid 1px white ;
-			border-radius:5px  ;
-			color: white;
-			
-		}
 
-#divmiddle{
+/* 悬停时更改下拉链接的颜色 */
+.dropdown-content a:hover {
+	background-color: #303749;
+}
+
+/* 悬停时显示下拉菜单 */
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+/* 显示下拉内容时，更改下拉按钮的背景颜色 */
+.dropdown:hover .dropbtn {
+	background-color: #303749;
+}
+
+#divleft {
+	background-color: #303749;
+	margin: 10px;
+	/* 			border: solid 1px; */
+	height: 88%;
+	width: 15%;
+	position: relative;
+	left: 0.5px;
+	float: left;
+}
+
+input[name="search"] {
+	background-color: #303749;
+	height: 30px;
+	width: 100%;
+	border: solid 1px white;
+	border-radius: 5px;
+	color: white;
+
+}
+
+#divmiddle {
 	margin: 10px;
 	width: 60%;
 	height: 88%;
 	float: left;
-/* 	position: absolute;
+	/* 	position: absolute;
 	top:30px */
 }
 
-#LM{
-	color: #FFFFFF;
-}
-#divright
-{
+#LM {
 	color: #FFFFFF;
 }
 
-		
+#divright {
+	color: #FFFFFF;
+}
+
+
+/* 设置全屏 */
+#fullScreenMask {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: none;
+	z-index: 9999999;
+	background-color: #ffffff;
+}
+
+#fullScreen {
+	width: 80%;
+	height: 80%;
+}

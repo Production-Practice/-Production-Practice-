@@ -35,6 +35,13 @@ function getG4(spectrumX, spectrumY) {
 				color: 'white'
 			}
 		},
+		toolbox: {
+			show: true,
+			feature: {
+			
+				saveAsImage: {}
+			}
+		},
 		xAxis: {
 			name: "[Hz]",
 			/* data: ['2021-01-02 16:00:02', '2021-02-02 16:00:02', '2021-03-02 16:00:02', '2021-04-02 16:00:02', '2021-05-02 16:00:02', '2021-06-02 16:00:02', '2021-07-02 16:00:02'], */
@@ -135,6 +142,13 @@ function getG3(spectrumX, spectrumY) {
 			textStyle: {
 				fontSize: 12,
 				color: 'white'
+			}
+		},
+		toolbox: {
+			show: true,
+			feature: {
+			
+				saveAsImage: {}
 			}
 		},
 		xAxis: {
@@ -239,6 +253,15 @@ function getG2(spectrumX, spectrumY) {
 				color: 'white'
 			}
 		},
+		toolbox: {
+			show: true,
+			feature: {
+			
+				saveAsImage: {}
+			}
+		},
+		
+		
 		xAxis: {
 			name: "[时间]",
 			/* data: ['2021-01-02 16:00:02', '2021-02-02 16:00:02', '2021-03-02 16:00:02', '2021-04-02 16:00:02', '2021-05-02 16:00:02', '2021-06-02 16:00:02', '2021-07-02 16:00:02'], */
@@ -340,6 +363,13 @@ function getG1(spectrumX, seri) {
 			textStyle: {
 				fontSize: 12,
 				color: 'white'
+			}
+		},
+		toolbox: {
+			show: true,
+			feature: {
+			
+				saveAsImage: {}
 			}
 		},
 		xAxis: {
@@ -456,7 +486,7 @@ var app = new Vue({
 		nodeId: "",
 		equipmentUuid: "",
 		pointId: [],
-
+		isy12:"",
 		spectrumX: [],
 		spectrumY: [],
 		waveX: [],
@@ -656,23 +686,29 @@ var app = new Vue({
 
 		GetGraph2: function() {
 			that = this;
+
 			axios.get("http://39.106.127.16:6793/trend/" + this.equipmentUuid + "/" + this.pointId[0] +
 				"/real_time").then(
 				function(response) {
-
+					
+					thats = that;
 					axios.get("http://39.106.127.16:6793/trend/" + that.equipmentUuid + "/" + that
 						.pointId[1] +
 						"/real_time").then(
-						function(response){
-							
+						function(response) {
+							console.log("第二个");
+							console.log(response);
+							thats.isy12 = response.data.data.trendValue[0].all;
+							// console.log(isy12);
+							// thats.y12.push(isy12);
+
 						}
-						)
-
-
+					)
+					console.log("第一个");
 					console.log(response);
 					/* 				console.log(response.data.data.waveValue.waveX) */
 
-
+					console.log(that.isy12);
 					var dtime = new Date();
 					var year = dtime.getFullYear();
 					var month = dtime.getMonth() + 1;
@@ -689,7 +725,7 @@ var app = new Vue({
 
 					isy1 = response.data.data.trendValue[0].all;
 					that.y1.push(isy1);
-					that.y12.push(isy2);
+					that.y12.push(that.isy12);
 
 
 
