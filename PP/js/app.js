@@ -1,492 +1,24 @@
-function getG4(spectrumX, spectrumY) {
-	var option = {
-		backgroundColor: '#303749',
-		title: {
-			top: '5',
-			left: 'center',
-			text: "频谱图",
-			textStyle: {
-				//文字颜色
-				color: "#ffb052",
-
-			}
-		},
-
-		grid: [{
-			left: '7%',
-			right: '7%',
-			top: '21%',
-			bottom: '27%'
-		}],
-		tooltip: {
-			trigger: 'axis'
-		},
-
-		legend: {
-
-			// y: 'bottom',
-			bottom: '10%',
-			x: 'center',
-			// 图例样式修改
-			itemWidth: 12,
-			itemHeight: 8, // 图例图形高度
-			textStyle: {
-				fontSize: 12,
-				color: 'white'
-			}
-		},
-		toolbox: {
-			show: true,
-			feature: {
-			
-				saveAsImage: {}
-			}
-		},
-		xAxis: {
-			name: "[Hz]",
-			/* data: ['2021-01-02 16:00:02', '2021-02-02 16:00:02', '2021-03-02 16:00:02', '2021-04-02 16:00:02', '2021-05-02 16:00:02', '2021-06-02 16:00:02', '2021-07-02 16:00:02'], */
-			data: spectrumX,
-			splitLine: {
-
-				show: true,
-				lineStyle: {
-					type: 'solid', //'dotted'虚线 'solid'实线，
-					color: 'rgba(255,255,255,0.3)'
-				},
-			},
-			type: 'category',
-			axisLine: {
-				lineStyle: {
-					type: 'solid',
-					color: 'rgba(255,255,255,0.3)',
-					width: '1.5' //坐标线的宽度
-				}
-			},
-			axisLabel: {
-				textStyle: {
-					color: '#fff', //坐标值得具体的颜色
-
-				}
-			}
-
-		},
-		yAxis: {
-			name: "[um]",
-			// boundaryGap: [0.2, 0.2],
-			splitLine: {
-				show: true,
-				lineStyle: {
-					type: 'dotted', //'dotted'虚线 'solid'实线，
-					color: 'rgba(255,255,255,0.3)'
-				},
-			},
-			type: 'value',
-			//splitNumber: 3,
-			axisLine: {
-				lineStyle: {
-					type: 'solid',
-					color: 'rgba(255,255,255,0.3)',
-					width: '1.5' //坐标线的宽度
-				}
-			},
-			axisLabel: {
-				textStyle: {
-					color: '#fff', //坐标值得具体的颜色
-
-				}
-			}
-		},
-		series: [{
-			name: '',
-			/* data: [150, 230, 224, 218, 135, 147, 260], */
-			data: spectrumY,
-			type: 'line',
-			color: '#00FF00',
-		}]
-	}
-	myChart4.setOption(option);
-}
-
-function getG3(spectrumX, spectrumY) {
-	var option = {
-		backgroundColor: '#303749',
-		title: {
-			top: '5',
-			left: 'center',
-			text: "波形图",
-			textStyle: {
-				//文字颜色
-				color: "#ffb052",
-
-			}
-		},
-
-		grid: [{
-			left: '7%',
-			right: '7%',
-			top: '21%',
-			bottom: '27%'
-		}],
-		tooltip: {
-			trigger: 'axis'
-		},
-
-		legend: {
-
-			// y: 'bottom',
-			bottom: '10%',
-			x: 'center',
-			// 图例样式修改
-			itemWidth: 12,
-			itemHeight: 8, // 图例图形高度
-			textStyle: {
-				fontSize: 12,
-				color: 'white'
-			}
-		},
-		toolbox: {
-			show: true,
-			feature: {
-			
-				saveAsImage: {}
-			}
-		},
-		xAxis: {
-			name: "[秒]",
-			/* data: ['2021-01-02 16:00:02', '2021-02-02 16:00:02', '2021-03-02 16:00:02', '2021-04-02 16:00:02', '2021-05-02 16:00:02', '2021-06-02 16:00:02', '2021-07-02 16:00:02'], */
-			data: spectrumX,
-			splitLine: {
-
-				show: true,
-				lineStyle: {
-					type: 'solid', //'dotted'虚线 'solid'实线，
-					color: 'rgba(255,255,255,0.3)'
-				},
-			},
-			type: 'category',
-			axisLine: {
-				lineStyle: {
-					type: 'solid',
-					color: 'rgba(255,255,255,0.3)',
-					width: '1.5' //坐标线的宽度
-				}
-			},
-			axisLabel: {
-				textStyle: {
-					color: '#fff', //坐标值得具体的颜色
-
-				}
-			}
-
-		},
-		yAxis: {
-			name: "[um]",
-			// boundaryGap: [0.2, 0.2],
-			splitLine: {
-				show: true,
-				lineStyle: {
-					type: 'dotted', //'dotted'虚线 'solid'实线，
-					color: 'rgba(255,255,255,0.3)'
-				},
-			},
-			type: 'value',
-			//splitNumber: 3,
-			axisLine: {
-				lineStyle: {
-					type: 'solid',
-					color: 'rgba(255,255,255,0.3)',
-					width: '1.5' //坐标线的宽度
-				}
-			},
-			axisLabel: {
-				textStyle: {
-					color: '#fff', //坐标值得具体的颜色
-
-				}
-			}
-		},
-		series: [{
-			name: '',
-			/* data: [150, 230, 224, 218, 135, 147, 260], */
-			data: spectrumY,
-			type: 'line',
-			color: '#00FF00',
-		}]
-	}
-	myChart3.setOption(option);
-}
-
-function getG2(spectrumX, spectrumY) {
-	var option = {
-		backgroundColor: '#303749',
-		title: {
-			top: '5',
-			left: 'center',
-			text: "转速趋势图",
-			textStyle: {
-				//文字颜色
-				color: "#ffb052",
-
-			}
-		},
-
-		grid: [{
-			left: '7%',
-			right: '7%',
-			top: '21%',
-			bottom: '27%'
-		}],
-		tooltip: {
-			trigger: 'axis'
-		},
-
-		legend: {
-
-			// y: 'bottom',
-			bottom: '10%',
-			x: 'center',
-			// 图例样式修改
-			itemWidth: 12,
-			itemHeight: 8, // 图例图形高度
-			textStyle: {
-				fontSize: 12,
-				color: 'white'
-			}
-		},
-		toolbox: {
-			show: true,
-			feature: {
-			
-				saveAsImage: {}
-			}
-		},
-		
-		
-		xAxis: {
-			name: "[时间]",
-			/* data: ['2021-01-02 16:00:02', '2021-02-02 16:00:02', '2021-03-02 16:00:02', '2021-04-02 16:00:02', '2021-05-02 16:00:02', '2021-06-02 16:00:02', '2021-07-02 16:00:02'], */
-			data: spectrumX,
-			splitLine: {
-
-				show: true,
-				lineStyle: {
-					type: 'solid', //'dotted'虚线 'solid'实线，
-					color: 'rgba(255,255,255,0.3)'
-				},
-			},
-			type: 'category',
-			axisLine: {
-				lineStyle: {
-					type: 'solid',
-					color: 'rgba(255,255,255,0.3)',
-					width: '1.5' //坐标线的宽度
-				}
-			},
-			axisLabel: {
-				textStyle: {
-					color: '#fff', //坐标值得具体的颜色
-
-				}
-			}
-
-		},
-		yAxis: {
-			name: "[r/min]",
-			// boundaryGap: [0.2, 0.2],
-			splitLine: {
-				show: true,
-				lineStyle: {
-					type: 'dotted', //'dotted'虚线 'solid'实线，
-					color: 'rgba(255,255,255,0.3)'
-				},
-			},
-			type: 'value',
-			//splitNumber: 3,
-			axisLine: {
-				lineStyle: {
-					type: 'solid',
-					color: 'rgba(255,255,255,0.3)',
-					width: '1.5' //坐标线的宽度
-				}
-			},
-			axisLabel: {
-				textStyle: {
-					color: '#fff', //坐标值得具体的颜色
-
-				}
-			}
-		},
-		series: [{
-			name: '',
-			/* data: [150, 230, 224, 218, 135, 147, 260], */
-			data: spectrumY,
-			type: 'line',
-			color: '#00FF00',
-		}]
-	}
-	myChart2.setOption(option);
-}
-
-
-function getG1(spectrumX, seri) {
-	var option = {
-		backgroundColor: '#303749',
-		title: {
-			top: '5',
-			left: 'center',
-			text: "实时趋势图",
-			textStyle: {
-				//文字颜色
-				color: "#ffb052",
-
-			}
-		},
-
-		grid: [{
-			left: '7%',
-			right: '7%',
-			top: '21%',
-			bottom: '27%'
-		}],
-		tooltip: {
-			trigger: 'axis'
-		},
-
-		legend: {
-			data: ["X", "Y"],
-			// y: 'bottom',
-			bottom: '10%',
-			x: 'center',
-			// 图例样式修改
-			itemWidth: 12,
-			itemHeight: 8, // 图例图形高度
-			textStyle: {
-				fontSize: 12,
-				color: 'white'
-			}
-		},
-		toolbox: {
-			show: true,
-			feature: {
-			
-				saveAsImage: {}
-			}
-		},
-		xAxis: {
-			name: "[时间]",
-			/* data: ['2021-01-02 16:00:02', '2021-02-02 16:00:02', '2021-03-02 16:00:02', '2021-04-02 16:00:02', '2021-05-02 16:00:02', '2021-06-02 16:00:02', '2021-07-02 16:00:02'], */
-			data: spectrumX,
-			splitLine: {
-
-				show: true,
-				lineStyle: {
-					type: 'solid', //'dotted'虚线 'solid'实线，
-					color: 'rgba(255,255,255,0.3)'
-				},
-			},
-			type: 'category',
-			axisLine: {
-				lineStyle: {
-					type: 'solid',
-					color: 'rgba(255,255,255,0.3)',
-					width: '1.5' //坐标线的宽度
-				}
-			},
-			axisLabel: {
-				textStyle: {
-					color: '#fff', //坐标值得具体的颜色
-
-				}
-			}
-
-		},
-		yAxis: {
-			name: "[mm/s2]",
-			// boundaryGap: [0.2, 0.2],
-			splitLine: {
-				show: true,
-				lineStyle: {
-					type: 'dotted', //'dotted'虚线 'solid'实线，
-					color: 'rgba(255,255,255,0.3)'
-				},
-			},
-			type: 'value',
-			//splitNumber: 3,
-			axisLine: {
-				lineStyle: {
-					type: 'solid',
-					color: 'rgba(255,255,255,0.3)',
-					width: '1.5' //坐标线的宽度
-				}
-			},
-			axisLabel: {
-				textStyle: {
-					color: '#fff', //坐标值得具体的颜色
-
-				}
-			}
-		},
-
-		series: seri
-
-
-		//  [{
-		// 		name: "X",
-		// 		/* data: [150, 230, 224, 218, 135, 147, 260], */
-		// 		data: Y1,
-		// 		type: 'line',
-		// 		color: '#00FF00'
-
-
-		// 	},
-
-		// 	{
-		// 		name: "Y",
-		// 		/* data: [150, 230, 224, 218, 135, 147, 260], */
-		// 		data: Y2,
-		// 		type: 'line',
-		// 		color: '#ff1a1a'
-
-
-		// 	},
-
-		// ]
-	}
-	myChart1.setOption(option);
-}
-
-
-function Graphclear() {
-	myChart1.clear();
-	myChart2.clear();
-}
-
-function clearall() {
-	myChart1.clear();
-	myChart2.clear();
-	myChart3.clear();
-	myChart4.clear();
-}
-
-/* var cbx=document.getElementsByName("p");
-console.log(cbx[0].value);
- */
-
-
 
 var app = new Vue({
 
 	el: "#app",
 
 	data: {
-
+		e1: true,
+		eclc1:false,
+		e2: true,
+		eclc2:false,
+		e3: true,
+		eclc3:false,
+		e4: true,
+		eclc4:false,
 		series: [],
 		xclc: true,
 		yclc: false,
 		nodeId: "",
 		equipmentUuid: "",
 		pointId: [],
-		isy12:"",
+		isy12: "",
 		spectrumX: [],
 		spectrumY: [],
 		waveX: [],
@@ -506,7 +38,9 @@ var app = new Vue({
 		imgurl1: "../images/rightsan",
 		imgurl2: "../images/downsan",
 		flag: 0,
-		isstop: false
+		isstop: false,
+		
+		myChart1:null
 
 	},
 	mounted: function() {
@@ -517,21 +51,615 @@ var app = new Vue({
 	},
 	methods: {
 
-		// Get: function() {
-		// 	// this.GetnodeId();
-		// 	if (this.xclc || this.yclc) {
+		getG4:function(spectrumX, spectrumY) {
+			var option = {
+				backgroundColor: '#303749',
+				title: {
+					top: '5',
+					left: 'center',
+					text: "频谱图",
+					textStyle: {
+						//文字颜色
+						color: "#ffb052",
 
-		// 		this.GetnodeId();
+					}
+				},
 
-		// 	}
+				grid: [{
+					left: '7%',
+					right: '7%',
+					top: '21%',
+					bottom: '27%'
+				}],
+				tooltip: {
+					trigger: 'axis'
+				},
+
+				legend: {
+
+					// y: 'bottom',
+					bottom: '10%',
+					x: 'center',
+					// 图例样式修改
+					itemWidth: 12,
+					itemHeight: 8, // 图例图形高度
+					textStyle: {
+						fontSize: 12,
+						color: 'white'
+					}
+				},
+				toolbox: {
+					show: true,
+					feature: {
+						dataZoom: {
+							yAxisIndex: 'none'
+						},
+						restore: {},
+						saveAsImage: {},
+						myFull: {
+							show: true,
+							title: '全屏',
+							icon: "path://M628.053333 628.053333a32 32 0 0 1 45.226667 0l158.72 158.634667V693.333333l0.298667-4.352A32 32 0 0 1 896 693.333333v181.333334l-0.341333 3.84a21.333333 21.333333 0 0 1-20.992 17.493333h-181.333334l-4.352-0.298667a32 32 0 0 1-27.648-31.701333l0.298667-4.352a32 32 0 0 1 31.701333-27.648h93.44l-158.72-158.72-3.114666-3.584a32 32 0 0 1 3.114666-41.642667z m-232.106666 0a32 32 0 0 1 3.114666 41.642667l-3.114666 3.584-158.72 158.72h93.44a32 32 0 0 1 31.701333 27.648l0.298667 4.352a32 32 0 0 1-27.648 31.701333L330.666667 896H149.333333a21.333333 21.333333 0 0 1-20.992-17.493333L128 874.666667v-181.333334a32 32 0 0 1 63.701333-4.352l0.298667 4.352v93.354667l158.72-158.634667a32 32 0 0 1 45.226667 0zM874.666667 128a21.333333 21.333333 0 0 1 20.992 17.493333L896 149.333333v181.333334a32 32 0 0 1-63.701333 4.352L832 330.666667V237.312L673.28 395.946667a32 32 0 0 1-48.341333-41.642667l3.114666-3.584 158.72-158.72h-93.44a32 32 0 0 1-31.701333-27.648L661.333333 160a32 32 0 0 1 27.648-31.701333L693.333333 128h181.333334zM330.666667 128l4.352 0.298667a32 32 0 0 1 27.648 31.701333l-0.298667 4.352a32 32 0 0 1-31.701333 27.648H237.226667l158.72 158.72 3.114666 3.584a32 32 0 0 1-48.341333 41.642667L192 237.312V330.666667l-0.298667 4.352A32 32 0 0 1 128 330.666667V149.333333l0.341333-3.84A21.333333 21.333333 0 0 1 149.333333 128h181.333334z",
+							
+							onclick: function(e) {
+							
+								const element = document.getElementById("main4");
+								that.eclc4=!that.eclc4;
+								console.log("我点击全屏");
+								console.log(element.style.height);
+								//console.log(that.e1);
+								if(that.eclc4==true)
+								{
+									that.e1=false;
+									that.e2=false;
+									that.e3=false;
+									element.style.height="100%";
+									myChart4.resize();
+									
+									
+									
+								}
+								else{
+									that.e1=true;
+									that.e2=true;
+									that.e3=true;
+									element.style.height="25%";
+									myChart4.resize();
+								}
+								
+							},
+						
+						}
+						
+					}
+				},
+				xAxis: {
+					name: "[Hz]",
+					/* data: ['2021-01-02 16:00:02', '2021-02-02 16:00:02', '2021-03-02 16:00:02', '2021-04-02 16:00:02', '2021-05-02 16:00:02', '2021-06-02 16:00:02', '2021-07-02 16:00:02'], */
+					data: spectrumX,
+					splitLine: {
+
+						show: true,
+						lineStyle: {
+							type: 'solid', //'dotted'虚线 'solid'实线，
+							color: 'rgba(255,255,255,0.3)'
+						},
+					},
+					type: 'category',
+					axisLine: {
+						lineStyle: {
+							type: 'solid',
+							color: 'rgba(255,255,255,0.3)',
+							width: '1.5' //坐标线的宽度
+						}
+					},
+					axisLabel: {
+						textStyle: {
+							color: '#fff', //坐标值得具体的颜色
+
+						}
+					}
+
+				},
+				yAxis: {
+					name: "[um]",
+					// boundaryGap: [0.2, 0.2],
+					splitLine: {
+						show: true,
+						lineStyle: {
+							type: 'dotted', //'dotted'虚线 'solid'实线，
+							color: 'rgba(255,255,255,0.3)'
+						},
+					},
+					type: 'value',
+					//splitNumber: 3,
+					axisLine: {
+						lineStyle: {
+							type: 'solid',
+							color: 'rgba(255,255,255,0.3)',
+							width: '1.5' //坐标线的宽度
+						}
+					},
+					axisLabel: {
+						textStyle: {
+							color: '#fff', //坐标值得具体的颜色
+
+						}
+					}
+				},
+				series: [{
+					name: '',
+					/* data: [150, 230, 224, 218, 135, 147, 260], */
+					data: spectrumY,
+					type: 'line',
+					color: '#00FF00',
+				}]
+			}
+			myChart4.setOption(option);
+		},
+
+		getG3:function(spectrumX, spectrumY) {
+			var option = {
+				backgroundColor: '#303749',
+				title: {
+					top: '5',
+					left: 'center',
+					text: "波形图",
+					textStyle: {
+						//文字颜色
+						color: "#ffb052",
+
+					}
+				},
+
+				grid: [{
+					left: '7%',
+					right: '7%',
+					top: '21%',
+					bottom: '27%'
+				}],
+				tooltip: {
+					trigger: 'axis'
+				},
+
+				legend: {
+
+					// y: 'bottom',
+					bottom: '10%',
+					x: 'center',
+					// 图例样式修改
+					itemWidth: 12,
+					itemHeight: 8, // 图例图形高度
+					textStyle: {
+						fontSize: 12,
+						color: 'white'
+					}
+				},
+				toolbox: {
+					show: true,
+					feature: {
+						dataZoom: {
+							yAxisIndex: 'none'
+						},
+						restore: {},
+						saveAsImage: {},
+						myFull: {
+							show: true,
+							title: '全屏',
+							icon: "path://M628.053333 628.053333a32 32 0 0 1 45.226667 0l158.72 158.634667V693.333333l0.298667-4.352A32 32 0 0 1 896 693.333333v181.333334l-0.341333 3.84a21.333333 21.333333 0 0 1-20.992 17.493333h-181.333334l-4.352-0.298667a32 32 0 0 1-27.648-31.701333l0.298667-4.352a32 32 0 0 1 31.701333-27.648h93.44l-158.72-158.72-3.114666-3.584a32 32 0 0 1 3.114666-41.642667z m-232.106666 0a32 32 0 0 1 3.114666 41.642667l-3.114666 3.584-158.72 158.72h93.44a32 32 0 0 1 31.701333 27.648l0.298667 4.352a32 32 0 0 1-27.648 31.701333L330.666667 896H149.333333a21.333333 21.333333 0 0 1-20.992-17.493333L128 874.666667v-181.333334a32 32 0 0 1 63.701333-4.352l0.298667 4.352v93.354667l158.72-158.634667a32 32 0 0 1 45.226667 0zM874.666667 128a21.333333 21.333333 0 0 1 20.992 17.493333L896 149.333333v181.333334a32 32 0 0 1-63.701333 4.352L832 330.666667V237.312L673.28 395.946667a32 32 0 0 1-48.341333-41.642667l3.114666-3.584 158.72-158.72h-93.44a32 32 0 0 1-31.701333-27.648L661.333333 160a32 32 0 0 1 27.648-31.701333L693.333333 128h181.333334zM330.666667 128l4.352 0.298667a32 32 0 0 1 27.648 31.701333l-0.298667 4.352a32 32 0 0 1-31.701333 27.648H237.226667l158.72 158.72 3.114666 3.584a32 32 0 0 1-48.341333 41.642667L192 237.312V330.666667l-0.298667 4.352A32 32 0 0 1 128 330.666667V149.333333l0.341333-3.84A21.333333 21.333333 0 0 1 149.333333 128h181.333334z",
+							
+							onclick: function(e) {
+							
+								const element = document.getElementById("main3");
+								that.eclc3=!that.eclc3;
+								console.log("我点击全屏");
+								console.log(element.style.height);
+								//console.log(that.e1);
+								if(that.eclc3==true)
+								{
+									that.e1=false;
+									that.e2=false;
+									that.e4=false;
+									element.style.height="100%";
+									myChart3.resize();
+									
+									
+									
+								}
+								else{
+									that.e1=true;
+									that.e2=true;
+									that.e4=true;
+									element.style.height="25%";
+									myChart3.resize();
+								}
+								
+							},
+						
+						}
+						
+					}
+				},
+				xAxis: {
+					name: "[秒]",
+					/* data: ['2021-01-02 16:00:02', '2021-02-02 16:00:02', '2021-03-02 16:00:02', '2021-04-02 16:00:02', '2021-05-02 16:00:02', '2021-06-02 16:00:02', '2021-07-02 16:00:02'], */
+					data: spectrumX,
+					splitLine: {
+
+						show: true,
+						lineStyle: {
+							type: 'solid', //'dotted'虚线 'solid'实线，
+							color: 'rgba(255,255,255,0.3)'
+						},
+					},
+					type: 'category',
+					axisLine: {
+						lineStyle: {
+							type: 'solid',
+							color: 'rgba(255,255,255,0.3)',
+							width: '1.5' //坐标线的宽度
+						}
+					},
+					axisLabel: {
+						textStyle: {
+							color: '#fff', //坐标值得具体的颜色
+
+						}
+					}
+
+				},
+				yAxis: {
+					name: "[um]",
+					// boundaryGap: [0.2, 0.2],
+					splitLine: {
+						show: true,
+						lineStyle: {
+							type: 'dotted', //'dotted'虚线 'solid'实线，
+							color: 'rgba(255,255,255,0.3)'
+						},
+					},
+					type: 'value',
+					//splitNumber: 3,
+					axisLine: {
+						lineStyle: {
+							type: 'solid',
+							color: 'rgba(255,255,255,0.3)',
+							width: '1.5' //坐标线的宽度
+						}
+					},
+					axisLabel: {
+						textStyle: {
+							color: '#fff', //坐标值得具体的颜色
+
+						}
+					}
+				},
+				series: [{
+					name: '',
+					/* data: [150, 230, 224, 218, 135, 147, 260], */
+					data: spectrumY,
+					type: 'line',
+					color: '#00FF00',
+				}]
+			}
+			myChart3.setOption(option);
+		},
+
+		getG2:function(spectrumX, spectrumY) {
+			var option = {
+				backgroundColor: '#303749',
+				title: {
+					top: '5',
+					left: 'center',
+					text: "转速趋势图",
+					textStyle: {
+						//文字颜色
+						color: "#ffb052",
+
+					}
+				},
+
+				grid: [{
+					left: '7%',
+					right: '7%',
+					top: '21%',
+					bottom: '27%'
+				}],
+				tooltip: {
+					trigger: 'axis'
+				},
+
+				legend: {
+
+					// y: 'bottom',
+					bottom: '10%',
+					x: 'center',
+					// 图例样式修改
+					itemWidth: 12,
+					itemHeight: 8, // 图例图形高度
+					textStyle: {
+						fontSize: 12,
+						color: 'white'
+					}
+				},
+				toolbox: {
+					show: true,
+					feature: {
+						dataZoom: {
+							yAxisIndex: 'none'
+						},
+						restore: {},
+						saveAsImage: {},
+						myFull: {
+							show: true,
+							title: '全屏',
+							icon: "path://M628.053333 628.053333a32 32 0 0 1 45.226667 0l158.72 158.634667V693.333333l0.298667-4.352A32 32 0 0 1 896 693.333333v181.333334l-0.341333 3.84a21.333333 21.333333 0 0 1-20.992 17.493333h-181.333334l-4.352-0.298667a32 32 0 0 1-27.648-31.701333l0.298667-4.352a32 32 0 0 1 31.701333-27.648h93.44l-158.72-158.72-3.114666-3.584a32 32 0 0 1 3.114666-41.642667z m-232.106666 0a32 32 0 0 1 3.114666 41.642667l-3.114666 3.584-158.72 158.72h93.44a32 32 0 0 1 31.701333 27.648l0.298667 4.352a32 32 0 0 1-27.648 31.701333L330.666667 896H149.333333a21.333333 21.333333 0 0 1-20.992-17.493333L128 874.666667v-181.333334a32 32 0 0 1 63.701333-4.352l0.298667 4.352v93.354667l158.72-158.634667a32 32 0 0 1 45.226667 0zM874.666667 128a21.333333 21.333333 0 0 1 20.992 17.493333L896 149.333333v181.333334a32 32 0 0 1-63.701333 4.352L832 330.666667V237.312L673.28 395.946667a32 32 0 0 1-48.341333-41.642667l3.114666-3.584 158.72-158.72h-93.44a32 32 0 0 1-31.701333-27.648L661.333333 160a32 32 0 0 1 27.648-31.701333L693.333333 128h181.333334zM330.666667 128l4.352 0.298667a32 32 0 0 1 27.648 31.701333l-0.298667 4.352a32 32 0 0 1-31.701333 27.648H237.226667l158.72 158.72 3.114666 3.584a32 32 0 0 1-48.341333 41.642667L192 237.312V330.666667l-0.298667 4.352A32 32 0 0 1 128 330.666667V149.333333l0.341333-3.84A21.333333 21.333333 0 0 1 149.333333 128h181.333334z",
+							
+							onclick: function(e) {
+							
+								const element = document.getElementById("main2");
+								that.eclc2=!that.eclc2;
+								console.log("我点击全屏");
+								console.log(element.style.height);
+								//console.log(that.e1);
+								if(that.eclc2==true)
+								{
+									that.e1=false;
+									that.e3=false;
+									that.e4=false;
+									element.style.height="100%";
+									myChart2.resize();
+									
+									
+									
+								}
+								else{
+									that.e1=true;
+									that.e3=true;
+									that.e4=true;
+									element.style.height="25%";
+									myChart2.resize();
+								}
+								
+							},
+						
+						}
+						
+					}
+				},
 
 
-		// },
+				xAxis: {
+					name: "[时间]",
+					/* data: ['2021-01-02 16:00:02', '2021-02-02 16:00:02', '2021-03-02 16:00:02', '2021-04-02 16:00:02', '2021-05-02 16:00:02', '2021-06-02 16:00:02', '2021-07-02 16:00:02'], */
+					data: spectrumX,
+					splitLine: {
+
+						show: true,
+						lineStyle: {
+							type: 'solid', //'dotted'虚线 'solid'实线，
+							color: 'rgba(255,255,255,0.3)'
+						},
+					},
+					type: 'category',
+					axisLine: {
+						lineStyle: {
+							type: 'solid',
+							color: 'rgba(255,255,255,0.3)',
+							width: '1.5' //坐标线的宽度
+						}
+					},
+					axisLabel: {
+						textStyle: {
+							color: '#fff', //坐标值得具体的颜色
+
+						}
+					}
+
+				},
+				yAxis: {
+					name: "[r/min]",
+					// boundaryGap: [0.2, 0.2],
+					splitLine: {
+						show: true,
+						lineStyle: {
+							type: 'dotted', //'dotted'虚线 'solid'实线，
+							color: 'rgba(255,255,255,0.3)'
+						},
+					},
+					type: 'value',
+					//splitNumber: 3,
+					axisLine: {
+						lineStyle: {
+							type: 'solid',
+							color: 'rgba(255,255,255,0.3)',
+							width: '1.5' //坐标线的宽度
+						}
+					},
+					axisLabel: {
+						textStyle: {
+							color: '#fff', //坐标值得具体的颜色
+
+						}
+					}
+				},
+				series: [{
+					name: '',
+					/* data: [150, 230, 224, 218, 135, 147, 260], */
+					data: spectrumY,
+					type: 'line',
+					color: '#00FF00',
+				}]
+			}
+			myChart2.setOption(option);
+		},
+
+
+		getG1:function(spectrumX, seri) {
+			// this.myChart1 = echarts.init(document.getElementById('main1'));
+			var option = {
+			
+				backgroundColor: '#303749',
+				title: {
+					top: '5',
+					left: 'center',
+					text: "实时趋势图",
+					textStyle: {
+						//文字颜色
+						color: "#ffb052",
+
+					}
+				},
+
+				grid: [{
+					left: '7%',
+					right: '7%',
+					top: '21%',
+					bottom: '27%'
+				}],
+				tooltip: {
+					trigger: 'axis'
+				},
+
+				legend: {
+					data: ["X", "Y"],
+					// y: 'bottom',
+					bottom: '10%',
+					x: 'center',
+					// 图例样式修改
+					itemWidth: 12,
+					itemHeight: 8, // 图例图形高度
+					textStyle: {
+						fontSize: 12,
+						color: 'white'
+					}
+				},
+				toolbox: {
+					show: true,
+					feature: {
+						dataZoom: {
+							yAxisIndex: 'none'
+						},
+						restore: {},
+						saveAsImage: {},
+
+						myFull: {
+							show: true,
+							title: '全屏',
+							icon: "path://M628.053333 628.053333a32 32 0 0 1 45.226667 0l158.72 158.634667V693.333333l0.298667-4.352A32 32 0 0 1 896 693.333333v181.333334l-0.341333 3.84a21.333333 21.333333 0 0 1-20.992 17.493333h-181.333334l-4.352-0.298667a32 32 0 0 1-27.648-31.701333l0.298667-4.352a32 32 0 0 1 31.701333-27.648h93.44l-158.72-158.72-3.114666-3.584a32 32 0 0 1 3.114666-41.642667z m-232.106666 0a32 32 0 0 1 3.114666 41.642667l-3.114666 3.584-158.72 158.72h93.44a32 32 0 0 1 31.701333 27.648l0.298667 4.352a32 32 0 0 1-27.648 31.701333L330.666667 896H149.333333a21.333333 21.333333 0 0 1-20.992-17.493333L128 874.666667v-181.333334a32 32 0 0 1 63.701333-4.352l0.298667 4.352v93.354667l158.72-158.634667a32 32 0 0 1 45.226667 0zM874.666667 128a21.333333 21.333333 0 0 1 20.992 17.493333L896 149.333333v181.333334a32 32 0 0 1-63.701333 4.352L832 330.666667V237.312L673.28 395.946667a32 32 0 0 1-48.341333-41.642667l3.114666-3.584 158.72-158.72h-93.44a32 32 0 0 1-31.701333-27.648L661.333333 160a32 32 0 0 1 27.648-31.701333L693.333333 128h181.333334zM330.666667 128l4.352 0.298667a32 32 0 0 1 27.648 31.701333l-0.298667 4.352a32 32 0 0 1-31.701333 27.648H237.226667l158.72 158.72 3.114666 3.584a32 32 0 0 1-48.341333 41.642667L192 237.312V330.666667l-0.298667 4.352A32 32 0 0 1 128 330.666667V149.333333l0.341333-3.84A21.333333 21.333333 0 0 1 149.333333 128h181.333334z",
+							
+							onclick: function(e) {
+							
+								const element = document.getElementById("main1");
+								that.eclc1=!that.eclc1;
+								console.log("我点击全屏");
+								console.log(element.style.height);
+								//console.log(that.e1);
+								if(that.eclc1==true)
+								{
+									that.e2=false;
+									that.e3=false;
+									that.e4=false;
+									element.style.height="100%";
+									myChart1.resize();
+									
+									
+									
+								}
+								else{
+									that.e2=true;
+									that.e3=true;
+									that.e4=true;
+									element.style.height="25%";
+									myChart1.resize();
+								}
+								
+							},
+
+						}
+
+					}
+				},
+				xAxis: {
+					name: "[时间]",
+					/* data: ['2021-01-02 16:00:02', '2021-02-02 16:00:02', '2021-03-02 16:00:02', '2021-04-02 16:00:02', '2021-05-02 16:00:02', '2021-06-02 16:00:02', '2021-07-02 16:00:02'], */
+					data: spectrumX,
+					splitLine: {
+
+						show: true,
+						lineStyle: {
+							type: 'solid', //'dotted'虚线 'solid'实线，
+							color: 'rgba(255,255,255,0.3)'
+						},
+					},
+					type: 'category',
+					axisLine: {
+						lineStyle: {
+							type: 'solid',
+							color: 'rgba(255,255,255,0.3)',
+							width: '1.5' //坐标线的宽度
+						}
+					},
+					axisLabel: {
+						textStyle: {
+							color: '#fff', //坐标值得具体的颜色
+
+						}
+					}
+
+				},
+				yAxis: {
+					name: "[mm/s2]",
+					// boundaryGap: [0.2, 0.2],
+					splitLine: {
+						show: true,
+						lineStyle: {
+							type: 'dotted', //'dotted'虚线 'solid'实线，
+							color: 'rgba(255,255,255,0.3)'
+						},
+					},
+					type: 'value',
+					//splitNumber: 3,
+					axisLine: {
+						lineStyle: {
+							type: 'solid',
+							color: 'rgba(255,255,255,0.3)',
+							width: '1.5' //坐标线的宽度
+						}
+					},
+					axisLabel: {
+						textStyle: {
+							color: '#fff', //坐标值得具体的颜色
+
+						}
+					}
+				},
+
+				series: seri
+
+
+			
+			}
+			myChart1.setOption(option);
+		},
+
+
+		Graphclear() {
+			myChart1.clear();
+			myChart2.clear();
+		},
+
+		clearall() {
+			myChart1.clear();
+			myChart2.clear();
+			myChart3.clear();
+			myChart4.clear();
+		},
 
 		xclick: function() {
 
 			this.xclc = !this.xclc;
-			Graphclear();
+			this.Graphclear();
 			this.time = [];
 			this.y1 = [];
 			this.y12 = [];
@@ -540,7 +668,7 @@ var app = new Vue({
 			// getG1(this.time, this.series);
 			// getG2(this.time, this.y2);
 			if (this.xclc == false && this.yclc == false) {
-				clearall();
+				this.clearall();
 			}
 			this.GetnodeId();
 
@@ -549,14 +677,14 @@ var app = new Vue({
 		yclick: function() {
 
 			this.yclc = !this.yclc;
-			Graphclear();
+			this.Graphclear();
 			this.time = [];
 			this.y1 = [];
 			this.y12 = [];
 			this.y2 = [];
 			this.series = [];
 			if (this.xclc == false && this.yclc == false) {
-				clearall();
+				this.clearall();
 			}
 			this.GetnodeId();
 			// getG1(this.time, this.series);
@@ -608,8 +736,8 @@ var app = new Vue({
 				clearInterval(this.timer);
 			} else {
 
-				Graphclear();
-				Graphclear();
+				this.Graphclear();
+				this.Graphclear();
 				this.time = [];
 				this.y1 = [];
 				this.y12 = [];
@@ -642,11 +770,11 @@ var app = new Vue({
 						that.waveY = [];
 						that.spectrumX = [];
 						that.spectrumY = [];
-						clearall();
-						getG1(this.time, this.series);
-						getG2(this.time, this.y2);
-						getG3(that.waveX, that.waveY);
-						getG4(that.spectrumX, that.spectrumY);
+						that.clearall();
+						that.getG1(this.time, this.series);
+						that.getG2(this.time, this.y2);
+						that.getG3(that.waveX, that.waveY);
+						that.getG4(that.spectrumX, that.spectrumY);
 					}
 
 				})
@@ -690,7 +818,7 @@ var app = new Vue({
 			axios.get("http://39.106.127.16:6793/trend/" + this.equipmentUuid + "/" + this.pointId[0] +
 				"/real_time").then(
 				function(response) {
-					
+
 					thats = that;
 					axios.get("http://39.106.127.16:6793/trend/" + that.equipmentUuid + "/" + that
 						.pointId[1] +
@@ -771,8 +899,8 @@ var app = new Vue({
 					/* 					that.series.push(yx1);
 										that.series.push(yy1); */
 					console.log(that.series);
-					getG1(that.time, that.series);
-					getG2(that.time, that.y2);
+					that.getG1(that.time, that.series);
+					that.getG2(that.time, that.y2);
 					console.log("获得图12");
 				}
 			)
@@ -789,7 +917,7 @@ var app = new Vue({
 					/* 				console.log(response.data.data.waveValue.waveX) */
 					that.waveX = response.data.data.waveValue.waveX;
 					that.waveY = response.data.data.waveValue.waveY;
-					getG3(that.waveX, that.waveY);
+					that.getG3(that.waveX, that.waveY);
 					/* 					var dtime = new Date();
 										console.log(dtime); */
 					console.log("获得图3");
@@ -809,7 +937,7 @@ var app = new Vue({
 									console.log(response.data.data.spectrumValue.spectrumX) */
 					that.spectrumX = response.data.data.spectrumValue.spectrumX;
 					that.spectrumY = response.data.data.spectrumValue.spectrumY;
-					getG4(that.spectrumX, that.spectrumY);
+					that.getG4(that.spectrumX, that.spectrumY);
 
 
 				}
