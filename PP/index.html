@@ -108,7 +108,7 @@
 				<div id="divleft">
 					<div id="leftop">
 						<form action="#" method="get">
-							<input type="text" name="search" value="搜索" />
+							<input type="text" name="search" placeholder="搜索" />
 						</form>
 					</div>
 					<div id="leftbot">
@@ -184,10 +184,10 @@
 					<!-- 	<iframe src="picture.html" width="100%" height="100%" frameborder="0"></iframe> -->
 					<div class="app" align="center">
 						<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-						<div id="main1" style="width: 100%;height:25%;"></div>
-						<div id="main2" style="width: 100%;height:25%;"></div>
-						<div id="main3" style="width: 100%;height:25%;"></div>
-						<div id="main4" style="width: 100%;height:25%;"></div>
+						<div id="main1" style="width: 100%;height:25%;" v-show="e1"></div>
+						<div id="main2" style="width: 100%;height:25%;" v-show="e2"></div>
+						<div id="main3" style="width: 100%;height:25%;" v-show="e3"></div>
+						<div id="main4" style="width: 100%;height:25%;" v-show="e4"></div>
 						<!-- 		
 							<button type="button" @click="GetnodeId()">get请求获取nodeId</button>
 							<button type="button" @click="GetequipId()">get请求获取equipmentId</button>
