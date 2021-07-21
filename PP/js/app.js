@@ -1,17 +1,16 @@
-
 var app = new Vue({
 
 	el: "#app",
 
 	data: {
 		e1: true,
-		eclc1:false,
+		eclc1: false,
 		e2: true,
-		eclc2:false,
+		eclc2: false,
 		e3: true,
-		eclc3:false,
+		eclc3: false,
 		e4: true,
-		eclc4:false,
+		eclc4: false,
 		series: [],
 		xclc: true,
 		yclc: false,
@@ -39,19 +38,22 @@ var app = new Vue({
 		imgurl2: "../images/downsan",
 		flag: 0,
 		isstop: false,
-		
-		myChart1:null
+		wavetime: "",
+		myChart1: null,
+		detaf: "",
+		datay: [],
+		hide:false
 
 	},
 	mounted: function() {
 
 		this.GetnodeId();
-		this.timer = setInterval(this.GetnodeId, 3000);
+		this.timer = setInterval(this.GetnodeId, 5000);
 
 	},
 	methods: {
 
-		getG4:function(spectrumX, spectrumY) {
+		getG4: function(spectrumX, spectrumY) {
 			var option = {
 				backgroundColor: '#303749',
 				title: {
@@ -100,37 +102,35 @@ var app = new Vue({
 							show: true,
 							title: '全屏',
 							icon: "path://M628.053333 628.053333a32 32 0 0 1 45.226667 0l158.72 158.634667V693.333333l0.298667-4.352A32 32 0 0 1 896 693.333333v181.333334l-0.341333 3.84a21.333333 21.333333 0 0 1-20.992 17.493333h-181.333334l-4.352-0.298667a32 32 0 0 1-27.648-31.701333l0.298667-4.352a32 32 0 0 1 31.701333-27.648h93.44l-158.72-158.72-3.114666-3.584a32 32 0 0 1 3.114666-41.642667z m-232.106666 0a32 32 0 0 1 3.114666 41.642667l-3.114666 3.584-158.72 158.72h93.44a32 32 0 0 1 31.701333 27.648l0.298667 4.352a32 32 0 0 1-27.648 31.701333L330.666667 896H149.333333a21.333333 21.333333 0 0 1-20.992-17.493333L128 874.666667v-181.333334a32 32 0 0 1 63.701333-4.352l0.298667 4.352v93.354667l158.72-158.634667a32 32 0 0 1 45.226667 0zM874.666667 128a21.333333 21.333333 0 0 1 20.992 17.493333L896 149.333333v181.333334a32 32 0 0 1-63.701333 4.352L832 330.666667V237.312L673.28 395.946667a32 32 0 0 1-48.341333-41.642667l3.114666-3.584 158.72-158.72h-93.44a32 32 0 0 1-31.701333-27.648L661.333333 160a32 32 0 0 1 27.648-31.701333L693.333333 128h181.333334zM330.666667 128l4.352 0.298667a32 32 0 0 1 27.648 31.701333l-0.298667 4.352a32 32 0 0 1-31.701333 27.648H237.226667l158.72 158.72 3.114666 3.584a32 32 0 0 1-48.341333 41.642667L192 237.312V330.666667l-0.298667 4.352A32 32 0 0 1 128 330.666667V149.333333l0.341333-3.84A21.333333 21.333333 0 0 1 149.333333 128h181.333334z",
-							
+
 							onclick: function(e) {
-							
+
 								const element = document.getElementById("main4");
-								that.eclc4=!that.eclc4;
+								that.eclc4 = !that.eclc4;
 								console.log("我点击全屏");
 								console.log(element.style.height);
 								//console.log(that.e1);
-								if(that.eclc4==true)
-								{
-									that.e1=false;
-									that.e2=false;
-									that.e3=false;
-									element.style.height="100%";
+								if (that.eclc4 == true) {
+									that.e1 = false;
+									that.e2 = false;
+									that.e3 = false;
+									element.style.height = "100%";
 									myChart4.resize();
-									
-									
-									
-								}
-								else{
-									that.e1=true;
-									that.e2=true;
-									that.e3=true;
-									element.style.height="25%";
+
+
+
+								} else {
+									that.e1 = true;
+									that.e2 = true;
+									that.e3 = true;
+									element.style.height = "25%";
 									myChart4.resize();
 								}
-								
+
 							},
-						
+
 						}
-						
+
 					}
 				},
 				xAxis: {
@@ -198,19 +198,47 @@ var app = new Vue({
 			myChart4.setOption(option);
 		},
 
-		getG3:function(spectrumX, spectrumY) {
+		getG3: function(spectrumX, spectrumY) {
 			var option = {
 				backgroundColor: '#303749',
-				title: {
-					top: '5',
-					left: 'center',
-					text: "波形图",
-					textStyle: {
-						//文字颜色
-						color: "#ffb052",
 
-					}
-				},
+				title: [{
+						top: '5',
+						left: 'center',
+						text: "波形图",
+						textStyle: {
+							//文字颜色
+							color: "#ffb052",
+
+						}
+					},
+
+					{
+						top: '5',
+						left: '70%',
+						text: "[" + this.wavetime + "]",
+						textStyle: {
+							//文字颜色
+							color: "#ffb052",
+							fontSize: 15,
+
+						}
+					},
+
+					{
+						top: '5',
+						left: '20%',
+						text: "Δf= " + this.detaf + "Hz",
+						textStyle: {
+							//文字颜色
+							color: "#ffb052",
+							fontSize: 15,
+
+						}
+					},
+
+				],
+
 
 				grid: [{
 					left: '7%',
@@ -247,37 +275,35 @@ var app = new Vue({
 							show: true,
 							title: '全屏',
 							icon: "path://M628.053333 628.053333a32 32 0 0 1 45.226667 0l158.72 158.634667V693.333333l0.298667-4.352A32 32 0 0 1 896 693.333333v181.333334l-0.341333 3.84a21.333333 21.333333 0 0 1-20.992 17.493333h-181.333334l-4.352-0.298667a32 32 0 0 1-27.648-31.701333l0.298667-4.352a32 32 0 0 1 31.701333-27.648h93.44l-158.72-158.72-3.114666-3.584a32 32 0 0 1 3.114666-41.642667z m-232.106666 0a32 32 0 0 1 3.114666 41.642667l-3.114666 3.584-158.72 158.72h93.44a32 32 0 0 1 31.701333 27.648l0.298667 4.352a32 32 0 0 1-27.648 31.701333L330.666667 896H149.333333a21.333333 21.333333 0 0 1-20.992-17.493333L128 874.666667v-181.333334a32 32 0 0 1 63.701333-4.352l0.298667 4.352v93.354667l158.72-158.634667a32 32 0 0 1 45.226667 0zM874.666667 128a21.333333 21.333333 0 0 1 20.992 17.493333L896 149.333333v181.333334a32 32 0 0 1-63.701333 4.352L832 330.666667V237.312L673.28 395.946667a32 32 0 0 1-48.341333-41.642667l3.114666-3.584 158.72-158.72h-93.44a32 32 0 0 1-31.701333-27.648L661.333333 160a32 32 0 0 1 27.648-31.701333L693.333333 128h181.333334zM330.666667 128l4.352 0.298667a32 32 0 0 1 27.648 31.701333l-0.298667 4.352a32 32 0 0 1-31.701333 27.648H237.226667l158.72 158.72 3.114666 3.584a32 32 0 0 1-48.341333 41.642667L192 237.312V330.666667l-0.298667 4.352A32 32 0 0 1 128 330.666667V149.333333l0.341333-3.84A21.333333 21.333333 0 0 1 149.333333 128h181.333334z",
-							
+
 							onclick: function(e) {
-							
+
 								const element = document.getElementById("main3");
-								that.eclc3=!that.eclc3;
+								that.eclc3 = !that.eclc3;
 								console.log("我点击全屏");
 								console.log(element.style.height);
 								//console.log(that.e1);
-								if(that.eclc3==true)
-								{
-									that.e1=false;
-									that.e2=false;
-									that.e4=false;
-									element.style.height="100%";
+								if (that.eclc3 == true) {
+									that.e1 = false;
+									that.e2 = false;
+									that.e4 = false;
+									element.style.height = "100%";
 									myChart3.resize();
-									
-									
-									
-								}
-								else{
-									that.e1=true;
-									that.e2=true;
-									that.e4=true;
-									element.style.height="25%";
+
+
+
+								} else {
+									that.e1 = true;
+									that.e2 = true;
+									that.e4 = true;
+									element.style.height = "25%";
 									myChart3.resize();
 								}
-								
+
 							},
-						
+
 						}
-						
+
 					}
 				},
 				xAxis: {
@@ -342,10 +368,42 @@ var app = new Vue({
 					color: '#00FF00',
 				}]
 			}
+			myChart3.off('click');
 			myChart3.setOption(option);
+			that = this;
+			myChart3.on('click', function(params) {
+
+				console.log("jjjjjjjjjjjjj");
+				console.log(params.name);
+				// this.datay.push(params.value);
+				// if(this.datay.length==2)
+				// {
+				// 	this.detaf=1/Math.abs(this.data[0]-this.data[1]);
+
+				// }
+
+				if (that.datay.length < 1) {
+					that.datay.push(params.name);
+
+					console.log(that.datay);
+
+				} else {
+
+					that.datay.push(params.name);
+					console.log(that.datay);
+					that.detaf = 1 / Math.abs(that.datay[0] - that.datay[1]);
+					that.detaf = Math.floor(that.detaf * 100) / 100;
+					that.getG3(that.waveX,that.waveY);
+					that.datay.shift();
+
+				}
+
+
+			})
+
 		},
 
-		getG2:function(spectrumX, spectrumY) {
+		getG2: function(spectrumX, spectrumY) {
 			var option = {
 				backgroundColor: '#303749',
 				title: {
@@ -394,37 +452,35 @@ var app = new Vue({
 							show: true,
 							title: '全屏',
 							icon: "path://M628.053333 628.053333a32 32 0 0 1 45.226667 0l158.72 158.634667V693.333333l0.298667-4.352A32 32 0 0 1 896 693.333333v181.333334l-0.341333 3.84a21.333333 21.333333 0 0 1-20.992 17.493333h-181.333334l-4.352-0.298667a32 32 0 0 1-27.648-31.701333l0.298667-4.352a32 32 0 0 1 31.701333-27.648h93.44l-158.72-158.72-3.114666-3.584a32 32 0 0 1 3.114666-41.642667z m-232.106666 0a32 32 0 0 1 3.114666 41.642667l-3.114666 3.584-158.72 158.72h93.44a32 32 0 0 1 31.701333 27.648l0.298667 4.352a32 32 0 0 1-27.648 31.701333L330.666667 896H149.333333a21.333333 21.333333 0 0 1-20.992-17.493333L128 874.666667v-181.333334a32 32 0 0 1 63.701333-4.352l0.298667 4.352v93.354667l158.72-158.634667a32 32 0 0 1 45.226667 0zM874.666667 128a21.333333 21.333333 0 0 1 20.992 17.493333L896 149.333333v181.333334a32 32 0 0 1-63.701333 4.352L832 330.666667V237.312L673.28 395.946667a32 32 0 0 1-48.341333-41.642667l3.114666-3.584 158.72-158.72h-93.44a32 32 0 0 1-31.701333-27.648L661.333333 160a32 32 0 0 1 27.648-31.701333L693.333333 128h181.333334zM330.666667 128l4.352 0.298667a32 32 0 0 1 27.648 31.701333l-0.298667 4.352a32 32 0 0 1-31.701333 27.648H237.226667l158.72 158.72 3.114666 3.584a32 32 0 0 1-48.341333 41.642667L192 237.312V330.666667l-0.298667 4.352A32 32 0 0 1 128 330.666667V149.333333l0.341333-3.84A21.333333 21.333333 0 0 1 149.333333 128h181.333334z",
-							
+
 							onclick: function(e) {
-							
+
 								const element = document.getElementById("main2");
-								that.eclc2=!that.eclc2;
+								that.eclc2 = !that.eclc2;
 								console.log("我点击全屏");
 								console.log(element.style.height);
 								//console.log(that.e1);
-								if(that.eclc2==true)
-								{
-									that.e1=false;
-									that.e3=false;
-									that.e4=false;
-									element.style.height="100%";
+								if (that.eclc2 == true) {
+									that.e1 = false;
+									that.e3 = false;
+									that.e4 = false;
+									element.style.height = "100%";
 									myChart2.resize();
-									
-									
-									
-								}
-								else{
-									that.e1=true;
-									that.e3=true;
-									that.e4=true;
-									element.style.height="25%";
+
+
+
+								} else {
+									that.e1 = true;
+									that.e3 = true;
+									that.e4 = true;
+									element.style.height = "25%";
 									myChart2.resize();
 								}
-								
+
 							},
-						
+
 						}
-						
+
 					}
 				},
 
@@ -495,10 +551,10 @@ var app = new Vue({
 		},
 
 
-		getG1:function(spectrumX, seri) {
+		getG1: function(spectrumX, seri) {
 			// this.myChart1 = echarts.init(document.getElementById('main1'));
 			var option = {
-			
+
 				backgroundColor: '#303749',
 				title: {
 					top: '5',
@@ -547,33 +603,31 @@ var app = new Vue({
 							show: true,
 							title: '全屏',
 							icon: "path://M628.053333 628.053333a32 32 0 0 1 45.226667 0l158.72 158.634667V693.333333l0.298667-4.352A32 32 0 0 1 896 693.333333v181.333334l-0.341333 3.84a21.333333 21.333333 0 0 1-20.992 17.493333h-181.333334l-4.352-0.298667a32 32 0 0 1-27.648-31.701333l0.298667-4.352a32 32 0 0 1 31.701333-27.648h93.44l-158.72-158.72-3.114666-3.584a32 32 0 0 1 3.114666-41.642667z m-232.106666 0a32 32 0 0 1 3.114666 41.642667l-3.114666 3.584-158.72 158.72h93.44a32 32 0 0 1 31.701333 27.648l0.298667 4.352a32 32 0 0 1-27.648 31.701333L330.666667 896H149.333333a21.333333 21.333333 0 0 1-20.992-17.493333L128 874.666667v-181.333334a32 32 0 0 1 63.701333-4.352l0.298667 4.352v93.354667l158.72-158.634667a32 32 0 0 1 45.226667 0zM874.666667 128a21.333333 21.333333 0 0 1 20.992 17.493333L896 149.333333v181.333334a32 32 0 0 1-63.701333 4.352L832 330.666667V237.312L673.28 395.946667a32 32 0 0 1-48.341333-41.642667l3.114666-3.584 158.72-158.72h-93.44a32 32 0 0 1-31.701333-27.648L661.333333 160a32 32 0 0 1 27.648-31.701333L693.333333 128h181.333334zM330.666667 128l4.352 0.298667a32 32 0 0 1 27.648 31.701333l-0.298667 4.352a32 32 0 0 1-31.701333 27.648H237.226667l158.72 158.72 3.114666 3.584a32 32 0 0 1-48.341333 41.642667L192 237.312V330.666667l-0.298667 4.352A32 32 0 0 1 128 330.666667V149.333333l0.341333-3.84A21.333333 21.333333 0 0 1 149.333333 128h181.333334z",
-							
+
 							onclick: function(e) {
-							
+
 								const element = document.getElementById("main1");
-								that.eclc1=!that.eclc1;
+								that.eclc1 = !that.eclc1;
 								console.log("我点击全屏");
 								console.log(element.style.height);
 								//console.log(that.e1);
-								if(that.eclc1==true)
-								{
-									that.e2=false;
-									that.e3=false;
-									that.e4=false;
-									element.style.height="100%";
+								if (that.eclc1 == true) {
+									that.e2 = false;
+									that.e3 = false;
+									that.e4 = false;
+									element.style.height = "100%";
 									myChart1.resize();
-									
-									
-									
-								}
-								else{
-									that.e2=true;
-									that.e3=true;
-									that.e4=true;
-									element.style.height="25%";
+
+
+
+								} else {
+									that.e2 = true;
+									that.e3 = true;
+									that.e4 = true;
+									element.style.height = "25%";
 									myChart1.resize();
 								}
-								
+
 							},
 
 						}
@@ -638,7 +692,7 @@ var app = new Vue({
 				series: seri
 
 
-			
+
 			}
 			myChart1.setOption(option);
 		},
@@ -744,10 +798,36 @@ var app = new Vue({
 				this.y2 = [];
 				this.series = [];
 				this.GetnodeId();
-				this.timer = setInterval(this.GetnodeId, 3000);
+				this.timer = setInterval(this.GetnodeId, 5000);
 			}
 		},
+		
+		Hidenbox:function(){
+			this.hide=!this.hide;
+			if(this.hide==true)
+			{
+				const element = document.getElementById("divmiddle");
+				element.style.width="80%";
+				myChart1.resize();
+				myChart2.resize();
+				myChart3.resize();
+				myChart4.resize();
+				
+			}
+			else{
+				const element = document.getElementById("divmiddle");
+				element.style.width="60%";
+				myChart1.resize();
+				myChart2.resize();
+				myChart3.resize();
+				myChart4.resize();
+			}
+			
+		},
+		
 		GetnodeId: function() {
+			this.datay = [];
+			this.detaf = "";
 			that = this;
 			axios.get("http://39.106.127.16:6793/node/info").then(
 				function(response) {
@@ -815,12 +895,14 @@ var app = new Vue({
 		GetGraph2: function() {
 			that = this;
 
-			axios.get("http://39.106.127.16:6793/trend/" + this.equipmentUuid + "/" + this.pointId[0] +
+			axios.get("http://39.106.127.16:6793/trend/" + this.equipmentUuid + "/" + this.pointId[
+					0] +
 				"/real_time").then(
 				function(response) {
 
 					thats = that;
-					axios.get("http://39.106.127.16:6793/trend/" + that.equipmentUuid + "/" + that
+					axios.get("http://39.106.127.16:6793/trend/" + that.equipmentUuid + "/" +
+						that
 						.pointId[1] +
 						"/real_time").then(
 						function(response) {
@@ -844,7 +926,9 @@ var app = new Vue({
 					var hour = dtime.getHours();
 					var minu = dtime.getMinutes();
 					var sec = dtime.getSeconds();
-					var times = year + "-" + month + "-" + day + " " + hour + ":" + minu + ":" + sec;
+					var times = year + "-" + month + "-" + day + " " + hour + ":" + minu + ":" +
+						sec;
+					that.wavetime = times;
 					that.time.push(times);
 					isy2 = response.data.data.rev;
 					that.y2.push(isy2);
@@ -917,6 +1001,8 @@ var app = new Vue({
 					/* 				console.log(response.data.data.waveValue.waveX) */
 					that.waveX = response.data.data.waveValue.waveX;
 					that.waveY = response.data.data.waveValue.waveY;
+					
+
 					that.getG3(that.waveX, that.waveY);
 					/* 					var dtime = new Date();
 										console.log(dtime); */
