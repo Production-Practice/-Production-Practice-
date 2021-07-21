@@ -8,37 +8,10 @@
 		<!-- 		<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
 		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
 		<script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
-
 		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-		<link rel="stylesheet" href="css/index.css" />
 		<script src="js/jquery.min.js"></script>
-		<link rel="stylesheet" href="css/font-awesome.css">
-		<style text\css>
-			.navbar {
-				position: absolute;
-				right: 1px;
-			}
 
-			.navbar p {
-				color: #d1d1d1;
-				text-align: center;
-			}
 
-			.navbar p#pspan1 {
-				font-size: 12px;
-				text-align: center;
-			}
-
-			.navbar p#pspan2 {
-				font-size: 10px;
-				text-align: center;
-			}
-
-			.navbar p#checki {
-				font-size: 18px;
-				text-align: left;
-			}
-		</style>
 
 	</head>
 
@@ -105,7 +78,10 @@
 
 
 			<div id="LM">
-				<div id="divleft">
+				
+				
+				
+				<div id="divleft" v-if="hideleft">
 					<div id="leftop">
 						<form action="#" method="get">
 							<input type="text" name="search" placeholder="搜索" />
@@ -158,7 +134,7 @@
 													<p class="mingzi">1#泵</p>
 												</span>
 											</div>
-											<div id="treeK">
+											<div id="treeK1">
 												<span v-show="show4">
 													<div class="nosanjiao"></div>
 													<div class="yuanquan"></div>
@@ -174,15 +150,15 @@
 
 					</div>
 				</div>
+				
+				
+				<div id="change" @click="hidelclick()">
+					<img src="images/change.png" style="width: 12px; margin-top: 9;" >
+				</div>
 
-
-				<div id="divmiddle" v-show=true>
-					<div id="fullScreenMask">
-						<a href="javascript:void(0)">放大</a>
-						<div class="echarts" id="fullScreen"></div>
-					</div>
+				<div id="divmiddle">
 					<!-- 	<iframe src="picture.html" width="100%" height="100%" frameborder="0"></iframe> -->
-					<div class="app" align="center">
+					<div class="app" id="map" align="center">
 						<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
 						<div id="main1" style="width: 100%;height:25%;" v-show="e1"></div>
 						<div id="main2" style="width: 100%;height:25%;" v-show="e2"></div>
@@ -208,14 +184,13 @@
 
 
 			</div>
+			
+			<div id="change1" @click="hiderclick()">
+				<img src="images/change.png" style="width: 12px; margin-top: 9;" >
+			</div>
 
-
-			<div id="divright">
-				<div class="navbar">
-					<input type="checkbox" id="checkbox" />
-					<label for="checkbox">
-						<i class="fa fa-retweet"></i>
-					</label>
+			<div id="divright" v-if="hideright">
+			
 					<ul>
 						<li>
 							<p id="menul">操作页</p>
@@ -271,7 +246,7 @@
 							<p>
 								<span>类型选择：实时<input type="radio" name="activity" checked="checked" value="实时"></span>
 								<span>历史<input type="radio" name="activity" value="历史"></span>
-								<span>
+
 									<div class="dropline">
 										<p>趋势类型(历史): <select class="-optin-monster" size="1">
 												<option>前一阶段</option>
@@ -289,7 +264,7 @@
 												<option>前1年</option>
 											</select></p>
 									</div>
-								</span>
+
 							</p>
 						</li>
 
@@ -300,7 +275,7 @@
 
 						</li>
 					</ul>
-				</div>
+			
 
 
 			</div>
