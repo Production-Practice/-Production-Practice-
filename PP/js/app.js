@@ -42,9 +42,9 @@ var app = new Vue({
 		myChart1: null,
 		detaf: "",
 		datay: [],
-		hideright:true,
-		
-		hideleft:true
+		hideright: true,
+
+		hideleft: true
 
 	},
 	mounted: function() {
@@ -54,61 +54,158 @@ var app = new Vue({
 
 	},
 	methods: {
-		
-		hidelclick:function(){
-			this.hideleft=!this.hideleft;
+
+		hidelclick: function() {
+			this.hideleft = !this.hideleft;
 			const element = document.getElementById("change");
-			if(this.hideleft==false)
-			{
-				element.style.left="0%"
+			if (this.hideleft == false && this.hideright == true) {
+				element.style.left = "0%"
 				const element1 = document.getElementById("divmiddle");
-				element1.style.width="79.5%";
+				element1.style.width = "79.5%";
+				myChart1.resize();
+				myChart2.resize();
+				myChart3.resize();
+				myChart4.resize();
+			} else if (this.hideleft == false && this.hideright == false) {
+				element.style.left = "0%"
+				const element1 = document.getElementById("divmiddle");
+				element1.style.width = "99%";
+				myChart1.resize();
+				myChart2.resize();
+				myChart3.resize();
+				myChart4.resize();
+			} else if (this.hideleft == true && this.hideright == true) {
+				element.style.left = "15.5%"
+				const element1 = document.getElementById("divmiddle");
+				element1.style.width = "63%";
+				myChart1.resize();
+				myChart2.resize();
+				myChart3.resize();
+				myChart4.resize();
+			} else {
+				element.style.left = "15.5%"
+				const element1 = document.getElementById("divmiddle");
+				element1.style.width = "80%";
 				myChart1.resize();
 				myChart2.resize();
 				myChart3.resize();
 				myChart4.resize();
 			}
-			else
-			{
-				element.style.left="15.5%"
-				const element1 = document.getElementById("divmiddle");
-				element1.style.width="63%";
-				myChart1.resize();
-				myChart2.resize();
-				myChart3.resize();
-				myChart4.resize();
-			}
-			
-			
+
+
+			// if(this.hideleft==false)
+			// {
+			// 	if(this.hideright==false)
+			// 	{
+			// 		element.style.left="0%"
+			// 		const element1 = document.getElementById("divmiddle");
+			// 		element1.style.width="90%";
+			// 		myChart1.resize();
+			// 		myChart2.resize();
+			// 		myChart3.resize();
+			// 		myChart4.resize();
+			// 	}
+			// 	else{
+			// 		element.style.left="0%"
+			// 		const element1 = document.getElementById("divmiddle");
+			// 		element1.style.width="79.5%";
+			// 		myChart1.resize();
+			// 		myChart2.resize();
+			// 		myChart3.resize();
+			// 		myChart4.resize();
+			// 	}
+
+
+			// }
+			// else
+			// {
+			// 	element.style.left="15.5%"
+			// 	const element1 = document.getElementById("divmiddle");
+			// 	element1.style.width="63%";
+			// 	myChart1.resize();
+			// 	myChart2.resize();
+			// 	myChart3.resize();
+			// 	myChart4.resize();
+			// }
+
+
 		},
 
 
-		hiderclick:function(){
-			this.hideright=!this.hideright;
+		hiderclick: function() {
+			this.hideright = !this.hideright;
 			const element = document.getElementById("change1");
-			if(this.hideright==false)
-			{
-				element.style.right="0%"
+			if (this.hideright == false && this.hideleft == false) {
+				element.style.right = "0%"
 				const element1 = document.getElementById("divmiddle");
-				element1.style.width="80%";
+				element1.style.width = "99%";
 				myChart1.resize();
 				myChart2.resize();
 				myChart3.resize();
 				myChart4.resize();
-				
+			}
+			else if(this.hideright==false&&this.hideleft==true)
+			{
+				element.style.right = "0%";
+				const element1 = document.getElementById("divmiddle");
+				element1.style.width = "80%";
+				myChart1.resize();
+				myChart2.resize();
+				myChart3.resize();
+				myChart4.resize();
+			}
+			else if(this.hideright==true&&this.hideleft==false)
+			{
+				element.style.right = "18.5%";
+				const element1 = document.getElementById("divmiddle");
+				element1.style.width = "79.5%";
+				myChart1.resize();
+				myChart2.resize();
+				myChart3.resize();
+				myChart4.resize();
 			}
 			else{
-				element.style.right="18.5%"
+				element.style.right = "18.5%";
 				const element1 = document.getElementById("divmiddle");
-				element1.style.width="63%";
+				element1.style.width = "63%";
 				myChart1.resize();
 				myChart2.resize();
 				myChart3.resize();
 				myChart4.resize();
 			}
-			
+
+			// if (this.hideright == false) {
+			// 	if (this.hideleft == false) {
+			// 		element.style.right = "0%"
+			// 		const element1 = document.getElementById("divmiddle");
+			// 		element1.style.width = "90%";
+			// 		myChart1.resize();
+			// 		myChart2.resize();
+			// 		myChart3.resize();
+			// 		myChart4.resize();
+			// 	} else {
+			// 		element.style.right = "0%"
+			// 		const element1 = document.getElementById("divmiddle");
+			// 		element1.style.width = "80%";
+			// 		myChart1.resize();
+			// 		myChart2.resize();
+			// 		myChart3.resize();
+			// 		myChart4.resize();
+			// 	}
+
+
+			// } else {
+			// 	element.style.right = "18.5%"
+			// 	const element1 = document.getElementById("divmiddle");
+			// 	element1.style.width = "63%";
+			// 	myChart1.resize();
+			// 	myChart2.resize();
+			// 	myChart3.resize();
+			// 	myChart4.resize();
+			// }
+
 		},
-		
+
 		getG4: function(spectrumX, spectrumY) {
 			var option = {
 				backgroundColor: '#303749',
@@ -449,7 +546,7 @@ var app = new Vue({
 					console.log(that.datay);
 					that.detaf = 1 / Math.abs(that.datay[0] - that.datay[1]);
 					that.detaf = Math.floor(that.detaf * 100) / 100;
-					that.getG3(that.waveX,that.waveY);
+					that.getG3(that.waveX, that.waveY);
 					that.datay.shift();
 
 				}
@@ -857,7 +954,7 @@ var app = new Vue({
 				this.timer = setInterval(this.GetnodeId, 5000);
 			}
 		},
-		
+
 
 		GetnodeId: function() {
 			this.datay = [];
@@ -1035,7 +1132,7 @@ var app = new Vue({
 					/* 				console.log(response.data.data.waveValue.waveX) */
 					that.waveX = response.data.data.waveValue.waveX;
 					that.waveY = response.data.data.waveValue.waveY;
-					
+
 
 					that.getG3(that.waveX, that.waveY);
 					/* 					var dtime = new Date();
