@@ -8,37 +8,10 @@
 		<!-- 		<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
 		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
 		<script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
-
 		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-		<link rel="stylesheet" href="css/index.css" />
 		<script src="js/jquery.min.js"></script>
-		<link rel="stylesheet" href="css/font-awesome.css">
-		<style text\css>
-			.navbar {
-				position: absolute;
-				right: 1px;
-			}
 
-			.navbar p {
-				color: #d1d1d1;
-				text-align: center;
-			}
 
-			.navbar p#pspan1 {
-				font-size: 12px;
-				text-align: center;
-			}
-
-			.navbar p#pspan2 {
-				font-size: 10px;
-				text-align: center;
-			}
-
-			.navbar p#checki {
-				font-size: 18px;
-				text-align: left;
-			}
-		</style>
 
 	</head>
 
@@ -107,8 +80,8 @@
 			<div id="LM">
 				
 				
-				<div id="divleft">
 				
+				<div id="divleft" v-if="hideleft">
 					<div id="leftop">
 						<form action="#" method="get">
 							<input type="text" name="search" placeholder="搜索" />
@@ -178,6 +151,10 @@
 					</div>
 				</div>
 				
+				
+				<div id="change" @click="hidelclick()">
+					<img src="images/change.png" style="width: 12px; margin-top: 9;" >
+				</div>
 
 				<div id="divmiddle">
 					<!-- 	<iframe src="picture.html" width="100%" height="100%" frameborder="0"></iframe> -->
@@ -207,14 +184,13 @@
 
 
 			</div>
+			
+			<div id="change1" @click="hiderclick()">
+				<img src="images/change.png" style="width: 12px; margin-top: 9;" >
+			</div>
 
-
-			<div id="divright">
-				<div class="navbar">
-					<input type="checkbox" id="checkbox" />
-					<label for="checkbox" @click="Hidenbox()">
-						<i class="fa fa-retweet"></i>
-					</label>
+			<div id="divright" v-if="hideright">
+			
 					<ul>
 						<li>
 							<p id="menul">操作页</p>
@@ -299,7 +275,7 @@
 
 						</li>
 					</ul>
-				</div>
+			
 
 
 			</div>
